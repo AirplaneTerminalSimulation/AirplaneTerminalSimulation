@@ -41,7 +41,8 @@ public class Form1 : Form
                              buffer,
                              btn1);
 
-        p2 = new WaitPanelThread(new Point(40, 10),
+        p2 = new WaitPanelThread(new Point(10, 10),
+                                23,
                              100, 1, pnl2,
                              Color.White,
                              semaphore,
@@ -347,6 +348,7 @@ public class ButtonPanelThread
 public class WaitPanelThread
 {
     private Point origin;
+    int length_to_go;
     private int delay;
     private Panel panel;
     private int direction;
@@ -359,6 +361,7 @@ public class WaitPanelThread
 
 
     public WaitPanelThread(Point origin,
+                       int length_to_go,
                        int delay,
                        int direction,
                        Panel panel,
@@ -367,6 +370,7 @@ public class WaitPanelThread
                        Buffer buffer)
     {
         this.origin = origin;
+        this.length_to_go = length_to_go;
         this.delay = delay;
         this.direction = direction;
         this.panel = panel;
@@ -392,7 +396,7 @@ public class WaitPanelThread
 
             buffer.Read(ref this.colour);
 
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= length_to_go; i++)
             {
 
                 panel.Invalidate();
