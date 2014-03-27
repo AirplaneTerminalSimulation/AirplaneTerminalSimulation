@@ -13,61 +13,62 @@ public class Form1 : Form
 {
 
     private Container components = null;
-    private ButtonPanelThread p1, p3;
-    private Button btn1, btn3;
-    private RunwayPanelThread p2;
+    private Panel panel_button_blue1, panel_button_red1;
+    private Button button_blue1, button_red1;
+    private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_button_red1;
+    private Panel panel_link1;
+    private Panel panel_runway1;
+    private RunwayPanelThread runway_panel_thread_panel_runway1;
     private Thread thread1, thread2, thread3;
-    private Semaphore semaphore;
-    private Buffer buffer;
-    private Thread semThread;
-    private Thread buffThread;
-    private Panel pnl1, pnl2, pnl3;
-
+    private Semaphore semaphore1;
+    private Buffer buffer1;
+    private Thread semThread1;
+    private Thread buffThread1;
 
     public Form1()
     {
         InitializeComponent();
 
 
-        semaphore = new Semaphore();
-        buffer = new Buffer();
+        semaphore1 = new Semaphore();
+        buffer1 = new Buffer();
 
 
-        p1 = new ButtonPanelThread(new Point(10, 40),
+        button_panel_thread_panel_button_blue1 = new ButtonPanelThread(new Point(10, 40),
                                 7,
-                             120, 3, pnl1,
+                             120, 3, panel_button_blue1,
                              Color.Blue,
-                             semaphore,
-                             buffer,
-                             btn1);
+                             semaphore1,
+                             buffer1,
+                             button_blue1);
 
-        p2 = new RunwayPanelThread(new Point(10, 10),
+        runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(10, 10),
                                 23,
-                             100, 1, pnl2,
+                             100, 1, panel_runway1,
                              Color.White,
-                             semaphore,
-                             buffer);
+                             semaphore1,
+                             buffer1);
 
-        p3 = new ButtonPanelThread(new Point(40, 10),
+        button_panel_thread_button_red1 = new ButtonPanelThread(new Point(40, 10),
                                 20,
-                             250, 1, pnl3,
+                             250, 1, panel_button_red1,
                              Color.Red,
-                             semaphore,
-                             buffer,
-                             btn3);
+                             semaphore1,
+                             buffer1,
+                             button_red1);
 
 
-        semThread = new Thread(new ThreadStart(semaphore.Start));
-        buffThread = new Thread(new ThreadStart(buffer.Start));
-        thread1 = new Thread(new ThreadStart(p1.Start));
-        thread2 = new Thread(new ThreadStart(p2.Start));
-        thread3 = new Thread(new ThreadStart(p3.Start));
+        semThread1 = new Thread(new ThreadStart(semaphore1.Start));
+        buffThread1 = new Thread(new ThreadStart(buffer1.Start));
+        thread1 = new Thread(new ThreadStart(button_panel_thread_panel_button_blue1.Start));
+        thread2 = new Thread(new ThreadStart(runway_panel_thread_panel_runway1.Start));
+        thread3 = new Thread(new ThreadStart(button_panel_thread_button_red1.Start));
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
 
-        semThread.Start();
-        buffThread.Start();
+        semThread1.Start();
+        buffThread1.Start();
         thread1.Start();
         thread2.Start();
         thread3.Start();
@@ -87,72 +88,82 @@ public class Form1 : Form
 
     private void InitializeComponent()
     {
-        this.pnl1 = new System.Windows.Forms.Panel();
-        this.btn1 = new System.Windows.Forms.Button();
-        this.pnl2 = new System.Windows.Forms.Panel();
-        this.pnl3 = new System.Windows.Forms.Panel();
-        this.btn3 = new System.Windows.Forms.Button();
-        this.pnl1.SuspendLayout();
-        this.pnl3.SuspendLayout();
-        this.SuspendLayout();
-        // 
-        // pnl1
-        // 
-        this.pnl1.BackColor = System.Drawing.Color.White;
-        this.pnl1.Controls.Add(this.btn1);
-        this.pnl1.Location = new System.Drawing.Point(370, 68);
-        this.pnl1.Name = "pnl1";
-        this.pnl1.Size = new System.Drawing.Size(30, 126);
-        this.pnl1.TabIndex = 0;
-        // 
-        // btn1
-        // 
-        this.btn1.BackColor = System.Drawing.Color.Pink;
-        this.btn1.Location = new System.Drawing.Point(0, 0);
-        this.btn1.Name = "btn1";
-        this.btn1.Size = new System.Drawing.Size(30, 30);
-        this.btn1.TabIndex = 0;
-        this.btn1.UseVisualStyleBackColor = false;
-        // 
-        // pnl2
-        // 
-        this.pnl2.BackColor = System.Drawing.Color.White;
-        this.pnl2.Location = new System.Drawing.Point(370, 200);
-        this.pnl2.Name = "pnl2";
-        this.pnl2.Size = new System.Drawing.Size(260, 30);
-        this.pnl2.TabIndex = 1;
-        // 
-        // pnl3
-        // 
-        this.pnl3.BackColor = System.Drawing.Color.White;
-        this.pnl3.Controls.Add(this.btn3);
-        this.pnl3.Location = new System.Drawing.Point(104, 200);
-        this.pnl3.Name = "pnl3";
-        this.pnl3.Size = new System.Drawing.Size(260, 30);
-        this.pnl3.TabIndex = 2;
-        // 
-        // btn3
-        // 
-        this.btn3.BackColor = System.Drawing.Color.Pink;
-        this.btn3.Location = new System.Drawing.Point(0, 0);
-        this.btn3.Name = "btn3";
-        this.btn3.Size = new System.Drawing.Size(30, 30);
-        this.btn3.TabIndex = 0;
-        this.btn3.UseVisualStyleBackColor = false;
-        // 
-        // Form1
-        // 
-        this.BackColor = System.Drawing.Color.LightGray;
-        this.ClientSize = new System.Drawing.Size(684, 461);
-        this.Controls.Add(this.pnl1);
-        this.Controls.Add(this.pnl2);
-        this.Controls.Add(this.pnl3);
-        this.Name = "Form1";
-        this.Text = "Bermuda Triangle Airways";
-        this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
-        this.pnl1.ResumeLayout(false);
-        this.pnl3.ResumeLayout(false);
-        this.ResumeLayout(false);
+            this.panel_button_blue1 = new System.Windows.Forms.Panel();
+            this.button_blue1 = new System.Windows.Forms.Button();
+            this.panel_runway1 = new System.Windows.Forms.Panel();
+            this.panel_button_red1 = new System.Windows.Forms.Panel();
+            this.button_red1 = new System.Windows.Forms.Button();
+            this.panel_link1 = new System.Windows.Forms.Panel();
+            this.panel_button_blue1.SuspendLayout();
+            this.panel_button_red1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panel_button_blue1
+            // 
+            this.panel_button_blue1.BackColor = System.Drawing.Color.White;
+            this.panel_button_blue1.Controls.Add(this.button_blue1);
+            this.panel_button_blue1.Location = new System.Drawing.Point(370, 68);
+            this.panel_button_blue1.Name = "panel_button_blue1";
+            this.panel_button_blue1.Size = new System.Drawing.Size(30, 126);
+            this.panel_button_blue1.TabIndex = 0;
+            // 
+            // button_blue1
+            // 
+            this.button_blue1.BackColor = System.Drawing.Color.Pink;
+            this.button_blue1.Location = new System.Drawing.Point(0, 0);
+            this.button_blue1.Name = "button_blue1";
+            this.button_blue1.Size = new System.Drawing.Size(30, 30);
+            this.button_blue1.TabIndex = 0;
+            this.button_blue1.UseVisualStyleBackColor = false;
+            // 
+            // panel_runway1
+            // 
+            this.panel_runway1.BackColor = System.Drawing.Color.White;
+            this.panel_runway1.Location = new System.Drawing.Point(576, 200);
+            this.panel_runway1.Name = "panel_runway1";
+            this.panel_runway1.Size = new System.Drawing.Size(260, 30);
+            this.panel_runway1.TabIndex = 1;
+            // 
+            // panel_button_red1
+            // 
+            this.panel_button_red1.BackColor = System.Drawing.Color.White;
+            this.panel_button_red1.Controls.Add(this.button_red1);
+            this.panel_button_red1.Location = new System.Drawing.Point(104, 200);
+            this.panel_button_red1.Name = "panel_button_red1";
+            this.panel_button_red1.Size = new System.Drawing.Size(260, 30);
+            this.panel_button_red1.TabIndex = 2;
+            // 
+            // button_red1
+            // 
+            this.button_red1.BackColor = System.Drawing.Color.Pink;
+            this.button_red1.Location = new System.Drawing.Point(0, 0);
+            this.button_red1.Name = "button_red1";
+            this.button_red1.Size = new System.Drawing.Size(30, 30);
+            this.button_red1.TabIndex = 0;
+            this.button_red1.UseVisualStyleBackColor = false;
+            // 
+            // panel_link1
+            // 
+            this.panel_link1.BackColor = System.Drawing.Color.White;
+            this.panel_link1.Location = new System.Drawing.Point(370, 200);
+            this.panel_link1.Name = "panel_link1";
+            this.panel_link1.Size = new System.Drawing.Size(200, 30);
+            this.panel_link1.TabIndex = 3;
+            // 
+            // Form1
+            // 
+            this.BackColor = System.Drawing.Color.LightGray;
+            this.ClientSize = new System.Drawing.Size(1044, 461);
+            this.Controls.Add(this.panel_link1);
+            this.Controls.Add(this.panel_button_blue1);
+            this.Controls.Add(this.panel_runway1);
+            this.Controls.Add(this.panel_button_red1);
+            this.Name = "Form1";
+            this.Text = "Bermuda Triangle Airways";
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
+            this.panel_button_blue1.ResumeLayout(false);
+            this.panel_button_red1.ResumeLayout(false);
+            this.ResumeLayout(false);
 
     }
 
