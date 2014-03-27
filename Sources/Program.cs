@@ -267,7 +267,7 @@ public class ButtonPanelThread
         Thread.Sleep(delay);
 
 
-        for (int k = 1; k <= 6; k++)
+        while (true)
         {
             this.zeroPlane();
             panel.Invalidate();
@@ -355,7 +355,7 @@ public class WaitPanelThread
 
         //Thread.Sleep(delay);
         this.colour = Color.White;
-        for (int k = 1; k <= 12; k++)
+        while (true)
         {
             semaphore.Signal();
             this.zeroPlane();
