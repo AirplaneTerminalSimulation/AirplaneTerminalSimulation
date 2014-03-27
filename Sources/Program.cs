@@ -34,6 +34,7 @@ public class Form1 : Form
 
 
         p1 = new ButtonPanelThread(new Point(10, 40),
+                                7,
                              120, 3, pnl1,
                              Color.Blue,
                              semaphore,
@@ -47,6 +48,7 @@ public class Form1 : Form
                              buffer);
 
         p3 = new ButtonPanelThread(new Point(40, 10),
+                                20,
                              250, 1, pnl3,
                              Color.Red,
                              semaphore,
@@ -84,72 +86,72 @@ public class Form1 : Form
 
     private void InitializeComponent()
     {
-            this.pnl1 = new System.Windows.Forms.Panel();
-            this.btn1 = new System.Windows.Forms.Button();
-            this.pnl2 = new System.Windows.Forms.Panel();
-            this.pnl3 = new System.Windows.Forms.Panel();
-            this.btn3 = new System.Windows.Forms.Button();
-            this.pnl1.SuspendLayout();
-            this.pnl3.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // pnl1
-            // 
-            this.pnl1.BackColor = System.Drawing.Color.White;
-            this.pnl1.Controls.Add(this.btn1);
-            this.pnl1.Location = new System.Drawing.Point(370, 68);
-            this.pnl1.Name = "pnl1";
-            this.pnl1.Size = new System.Drawing.Size(30, 126);
-            this.pnl1.TabIndex = 0;
-            // 
-            // btn1
-            // 
-            this.btn1.BackColor = System.Drawing.Color.Pink;
-            this.btn1.Location = new System.Drawing.Point(0, 0);
-            this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(30, 30);
-            this.btn1.TabIndex = 0;
-            this.btn1.UseVisualStyleBackColor = false;
-            // 
-            // pnl2
-            // 
-            this.pnl2.BackColor = System.Drawing.Color.White;
-            this.pnl2.Location = new System.Drawing.Point(370, 200);
-            this.pnl2.Name = "pnl2";
-            this.pnl2.Size = new System.Drawing.Size(260, 30);
-            this.pnl2.TabIndex = 1;
-            // 
-            // pnl3
-            // 
-            this.pnl3.BackColor = System.Drawing.Color.White;
-            this.pnl3.Controls.Add(this.btn3);
-            this.pnl3.Location = new System.Drawing.Point(104, 200);
-            this.pnl3.Name = "pnl3";
-            this.pnl3.Size = new System.Drawing.Size(260, 30);
-            this.pnl3.TabIndex = 2;
-            // 
-            // btn3
-            // 
-            this.btn3.BackColor = System.Drawing.Color.Pink;
-            this.btn3.Location = new System.Drawing.Point(0, 0);
-            this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(30, 30);
-            this.btn3.TabIndex = 0;
-            this.btn3.UseVisualStyleBackColor = false;
-            // 
-            // Form1
-            // 
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(684, 461);
-            this.Controls.Add(this.pnl1);
-            this.Controls.Add(this.pnl2);
-            this.Controls.Add(this.pnl3);
-            this.Name = "Form1";
-            this.Text = "Bermuda Triangle Airways";
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
-            this.pnl1.ResumeLayout(false);
-            this.pnl3.ResumeLayout(false);
-            this.ResumeLayout(false);
+        this.pnl1 = new System.Windows.Forms.Panel();
+        this.btn1 = new System.Windows.Forms.Button();
+        this.pnl2 = new System.Windows.Forms.Panel();
+        this.pnl3 = new System.Windows.Forms.Panel();
+        this.btn3 = new System.Windows.Forms.Button();
+        this.pnl1.SuspendLayout();
+        this.pnl3.SuspendLayout();
+        this.SuspendLayout();
+        // 
+        // pnl1
+        // 
+        this.pnl1.BackColor = System.Drawing.Color.White;
+        this.pnl1.Controls.Add(this.btn1);
+        this.pnl1.Location = new System.Drawing.Point(370, 68);
+        this.pnl1.Name = "pnl1";
+        this.pnl1.Size = new System.Drawing.Size(30, 126);
+        this.pnl1.TabIndex = 0;
+        // 
+        // btn1
+        // 
+        this.btn1.BackColor = System.Drawing.Color.Pink;
+        this.btn1.Location = new System.Drawing.Point(0, 0);
+        this.btn1.Name = "btn1";
+        this.btn1.Size = new System.Drawing.Size(30, 30);
+        this.btn1.TabIndex = 0;
+        this.btn1.UseVisualStyleBackColor = false;
+        // 
+        // pnl2
+        // 
+        this.pnl2.BackColor = System.Drawing.Color.White;
+        this.pnl2.Location = new System.Drawing.Point(370, 200);
+        this.pnl2.Name = "pnl2";
+        this.pnl2.Size = new System.Drawing.Size(260, 30);
+        this.pnl2.TabIndex = 1;
+        // 
+        // pnl3
+        // 
+        this.pnl3.BackColor = System.Drawing.Color.White;
+        this.pnl3.Controls.Add(this.btn3);
+        this.pnl3.Location = new System.Drawing.Point(104, 200);
+        this.pnl3.Name = "pnl3";
+        this.pnl3.Size = new System.Drawing.Size(260, 30);
+        this.pnl3.TabIndex = 2;
+        // 
+        // btn3
+        // 
+        this.btn3.BackColor = System.Drawing.Color.Pink;
+        this.btn3.Location = new System.Drawing.Point(0, 0);
+        this.btn3.Name = "btn3";
+        this.btn3.Size = new System.Drawing.Size(30, 30);
+        this.btn3.TabIndex = 0;
+        this.btn3.UseVisualStyleBackColor = false;
+        // 
+        // Form1
+        // 
+        this.BackColor = System.Drawing.Color.LightGray;
+        this.ClientSize = new System.Drawing.Size(684, 461);
+        this.Controls.Add(this.pnl1);
+        this.Controls.Add(this.pnl2);
+        this.Controls.Add(this.pnl3);
+        this.Name = "Form1";
+        this.Text = "Bermuda Triangle Airways";
+        this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
+        this.pnl1.ResumeLayout(false);
+        this.pnl3.ResumeLayout(false);
+        this.ResumeLayout(false);
 
     }
 
@@ -233,6 +235,7 @@ public class Semaphore
 public class ButtonPanelThread
 {
     private Point origin;
+    int length_to_go;
     private int delay;
     private Panel panel;
     private int direction;
@@ -248,6 +251,7 @@ public class ButtonPanelThread
 
 
     public ButtonPanelThread(Point origin,
+                             int length_to_go,
                              int delay,
                              int direction,
                              Panel panel,
@@ -257,6 +261,7 @@ public class ButtonPanelThread
                              Button btn)
     {
         this.origin = origin;
+        this.length_to_go = length_to_go;
         this.delay = delay;
         this.direction = direction;
         this.panel = panel;
@@ -303,7 +308,7 @@ public class ButtonPanelThread
                     Monitor.Wait(this);
                 }
             }
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= length_to_go; i++)
             {
                 this.movePlane(xDelta, yDelta);
                 Thread.Sleep(delay);
