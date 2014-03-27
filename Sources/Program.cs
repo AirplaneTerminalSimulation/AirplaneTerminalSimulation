@@ -34,7 +34,7 @@ public class Form1 : Form
 
 
         p1 = new ButtonPanelThread(new Point(40, 10),
-                             120, true, pnl1,
+                             120, 1, pnl1,
                              Color.Blue,
                              semaphore,
                              buffer,
@@ -47,7 +47,7 @@ public class Form1 : Form
                              buffer);
 
         p3 = new ButtonPanelThread(new Point(40, 10),
-                             250, true, pnl3,
+                             250, 1, pnl3,
                              Color.Red,
                              semaphore,
                              buffer,
@@ -210,7 +210,7 @@ public class ButtonPanelThread
     private Point origin;
     private int delay;
     private Panel panel;
-    private bool westEast;
+    private int direction;
     private Color colour;
     private Point plane;
     private int xDelta;
@@ -224,7 +224,7 @@ public class ButtonPanelThread
 
     public ButtonPanelThread(Point origin,
                              int delay,
-                             bool westEast,
+                             int direction,
                              Panel panel,
                              Color colour,
                              Semaphore semaphore,
@@ -233,13 +233,13 @@ public class ButtonPanelThread
     {
         this.origin = origin;
         this.delay = delay;
-        this.westEast = westEast;
+        this.direction = direction;
         this.panel = panel;
         this.colour = colour;
         this.plane = origin;
         this.panel.Paint += new PaintEventHandler(this.panel_Paint);
-        this.xDelta = westEast ? +10 : -10;
-        this.yDelta = 0;
+        this.xDelta = (direction == 1) ? +10 : ((direction == 2) ? -10 : 0);
+        this.yDelta = (direction == 3) ? +10 : ((direction == 4) ? -10 : 0);
         this.semaphore = semaphore;
         this.buffer = buffer;
         this.btn = btn;
