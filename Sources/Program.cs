@@ -15,7 +15,7 @@ public class Form1 : Form
     private Container components = null;
     private Panel panel_button_blue1, panel_button_red1;
     private Button button_blue1, button_red1;
-    private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_button_red1;
+    private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_panel_button_red1;
     private Panel panel_link1;
     private Panel panel_runway1;
     private RunwayPanelThread runway_panel_thread_panel_runway1;
@@ -42,6 +42,14 @@ public class Form1 : Form
                              buffer1,
                              button_blue1);
 
+        button_panel_thread_panel_button_red1 = new ButtonPanelThread(new Point(40, 10),
+                        20,
+                     250, 1, panel_button_red1,
+                     Color.Red,
+                     semaphore1,
+                     buffer1,
+                     button_red1);
+
         runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(10, 10),
                                 23,
                              100, 1, panel_runway1,
@@ -49,20 +57,14 @@ public class Form1 : Form
                              semaphore1,
                              buffer1);
 
-        button_panel_thread_button_red1 = new ButtonPanelThread(new Point(40, 10),
-                                20,
-                             250, 1, panel_button_red1,
-                             Color.Red,
-                             semaphore1,
-                             buffer1,
-                             button_red1);
+
 
 
         semThread1 = new Thread(new ThreadStart(semaphore1.Start));
         buffThread1 = new Thread(new ThreadStart(buffer1.Start));
         thread1 = new Thread(new ThreadStart(button_panel_thread_panel_button_blue1.Start));
         thread2 = new Thread(new ThreadStart(runway_panel_thread_panel_runway1.Start));
-        thread3 = new Thread(new ThreadStart(button_panel_thread_button_red1.Start));
+        thread3 = new Thread(new ThreadStart(button_panel_thread_panel_button_red1.Start));
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
