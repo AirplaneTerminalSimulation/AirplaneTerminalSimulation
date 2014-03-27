@@ -41,7 +41,7 @@ public class Form1 : Form
                              btn1);
 
         p2 = new WaitPanelThread(new Point(40, 10),
-                             100, true, pnl2,
+                             100, 1, pnl2,
                              Color.White,
                              semaphore,
                              buffer);
@@ -319,7 +319,7 @@ public class WaitPanelThread
     private Point origin;
     private int delay;
     private Panel panel;
-    private bool westEast;
+    private int direction;
     private Color colour;
     private Point plane;
     private int xDelta;
@@ -330,7 +330,7 @@ public class WaitPanelThread
 
     public WaitPanelThread(Point origin,
                        int delay,
-                       bool westEast,
+                       int direction,
                        Panel panel,
                        Color colour,
                        Semaphore semaphore,
@@ -338,13 +338,13 @@ public class WaitPanelThread
     {
         this.origin = origin;
         this.delay = delay;
-        this.westEast = westEast;
+        this.direction = direction;
         this.panel = panel;
         this.colour = colour;
         this.plane = origin;
         this.panel.Paint += new PaintEventHandler(this.panel_Paint);
-        this.xDelta = westEast ? +10 : -10;
-        this.yDelta = 0;
+        this.xDelta = (direction == 1) ? +10 : ((direction == 2) ? -10 : 0);
+        this.yDelta = (direction == 3) ? +10 : ((direction == 4) ? -10 : 0);
         this.semaphore = semaphore;
         this.buffer = buffer;
 
