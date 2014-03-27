@@ -15,7 +15,7 @@ public class Form1 : Form
     private Container components = null;
     private ButtonPanelThread p1, p3;
     private Button btn1, btn3;
-    private WaitPanelThread p2;
+    private RunwayPanelThread p2;
     private Thread thread1, thread2, thread3;
     private Semaphore semaphore;
     private Buffer buffer;
@@ -41,7 +41,7 @@ public class Form1 : Form
                              buffer,
                              btn1);
 
-        p2 = new WaitPanelThread(new Point(10, 10),
+        p2 = new RunwayPanelThread(new Point(10, 10),
                                 23,
                              100, 1, pnl2,
                              Color.White,
@@ -345,7 +345,7 @@ public class ButtonPanelThread
     }
 }// end class ButtonPanelThread
 
-public class WaitPanelThread
+public class RunwayPanelThread
 {
     private Point origin;
     int length_to_go;
@@ -360,7 +360,7 @@ public class WaitPanelThread
     private Buffer buffer;
 
 
-    public WaitPanelThread(Point origin,
+    public RunwayPanelThread(Point origin,
                        int length_to_go,
                        int delay,
                        int direction,
