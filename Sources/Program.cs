@@ -17,9 +17,10 @@ public class Form1 : Form
     private Button button_blue1, button_red1;
     private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_panel_button_red1;
     private Panel panel_link1;
+    private LinkPanelThread link_panel_thread_panel_link1;
     private Panel panel_runway1;
     private RunwayPanelThread runway_panel_thread_panel_runway1;
-    private Thread thread1, thread2, thread3;
+    private Thread thread1, thread2, thread3, thread4;
     private Semaphore semaphore1, semaphore2;
     private Buffer buffer1, buffer2;
     private Thread semThread1, semThread2;
@@ -52,14 +53,21 @@ public class Form1 : Form
                      buffer1,
                      button_red1);
 
-        runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(10, 10),
+        link_panel_thread_panel_link1 = new LinkPanelThread(new Point(8, 10),
+                                17,
+                             100, 1, panel_link1,
+                             Color.White,
+                             semaphore1,
+                             buffer1,
+                             semaphore2,
+                             buffer2);
+
+        runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(40, 10),
                                 23,
                              100, 1, panel_runway1,
                              Color.White,
-                             semaphore1,
-                             buffer1);
-
-
+                             semaphore2,
+                             buffer2);
 
 
         semThread1 = new Thread(new ThreadStart(semaphore1.Start));
@@ -69,6 +77,7 @@ public class Form1 : Form
         thread1 = new Thread(new ThreadStart(button_panel_thread_panel_button_blue1.Start));
         thread2 = new Thread(new ThreadStart(runway_panel_thread_panel_runway1.Start));
         thread3 = new Thread(new ThreadStart(button_panel_thread_panel_button_red1.Start));
+        thread4 = new Thread(new ThreadStart(link_panel_thread_panel_link1.Start));
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
@@ -80,6 +89,7 @@ public class Form1 : Form
         thread1.Start();
         thread2.Start();
         thread3.Start();
+        thread4.Start();
 
     }
 
