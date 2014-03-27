@@ -432,7 +432,7 @@ public class RunwayPanelThread
         brush.Dispose();    //  Dispose graphics resources. 
         g.Dispose();        //  
     }
-}// end class WaitPanelThread
+}// end class RunwayPanelThread
 
 public class TheOne
 {
