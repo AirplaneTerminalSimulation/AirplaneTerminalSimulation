@@ -410,6 +410,10 @@ public class LinkPanelThread
                 Thread.Sleep(delay);
 
             }
+            /* les lignes qui changent tout */
+            next_semaphore.Wait();
+            next_buffer.Write(this.colour);
+            /*------------------------------*/
             this.colour = Color.White;
             panel.Invalidate();
 
