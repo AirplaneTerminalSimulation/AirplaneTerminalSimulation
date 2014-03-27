@@ -358,6 +358,8 @@ public class LinkPanelThread
     private int yDelta;
     private Semaphore semaphore;
     private Buffer buffer;
+    private Semaphore next_semaphore;
+    private Buffer next_buffer;
 
 
     public LinkPanelThread(Point origin,
@@ -367,7 +369,9 @@ public class LinkPanelThread
                        Panel panel,
                        Color colour,
                        Semaphore semaphore,
-                       Buffer buffer)
+                       Buffer buffer,
+                       Semaphore next_semaphore,
+                       Buffer next_buffer)
     {
         this.origin = origin;
         this.length_to_go = length_to_go;
@@ -381,6 +385,8 @@ public class LinkPanelThread
         this.yDelta = (direction == 3) ? +10 : ((direction == 4) ? -10 : 0);
         this.semaphore = semaphore;
         this.buffer = buffer;
+        this.next_semaphore = next_semaphore;
+        this.next_buffer = next_buffer;
 
     }
 
