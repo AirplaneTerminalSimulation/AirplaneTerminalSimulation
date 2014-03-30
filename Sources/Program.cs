@@ -21,10 +21,10 @@ public class Form1 : Form
     private Panel panel_runway1;
     private RunwayPanelThread runway_panel_thread_panel_runway1;
     private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9;
-    private Semaphore semaphore1, semaphore2, semaphore3, semaphore4, semaphore5;
-    private Buffer buffer1, buffer2, buffer3, buffer4, buffer5;
-    private Thread semThread1, semThread2, semThread3, semThread4, semThread5;
-    private Thread buffThread1, buffThread2, buffThread3, buffThread4, buffThread5;
+    private Semaphore semaphore1, semaphore2, semaphore3, semaphore4, semaphore5, semaphore6, semaphore7, semaphore8;
+    private Buffer buffer1, buffer2, buffer3, buffer4, buffer5, buffer6, buffer7, buffer8;
+    private Thread semThread1, semThread2, semThread3, semThread4, semThread5, semThread6, semThread7, semThread8;
+    private Thread buffThread1, buffThread2, buffThread3, buffThread4, buffThread5, buffThread6, buffThread7, buffThread8;
 
 
     public Form1()
@@ -42,6 +42,12 @@ public class Form1 : Form
         buffer4 = new Buffer();
         semaphore5 = new Semaphore();
         buffer5 = new Buffer();
+        semaphore6 = new Semaphore();
+        buffer6 = new Buffer();
+        semaphore7 = new Semaphore();
+        buffer7 = new Buffer();
+        semaphore8 = new Semaphore();
+        buffer8 = new Buffer();
 
 
         button_panel_thread_panel_button_blue1 = new ButtonPanelThread(new Point(10, 40),
@@ -130,6 +136,12 @@ public class Form1 : Form
         buffThread4 = new Thread(new ThreadStart(buffer4.Start));
         semThread5 = new Thread(new ThreadStart(semaphore5.Start));
         buffThread5 = new Thread(new ThreadStart(buffer5.Start));
+        semThread6 = new Thread(new ThreadStart(semaphore5.Start));
+        buffThread6 = new Thread(new ThreadStart(buffer5.Start));
+        semThread7 = new Thread(new ThreadStart(semaphore5.Start));
+        buffThread7 = new Thread(new ThreadStart(buffer5.Start));
+        semThread8 = new Thread(new ThreadStart(semaphore5.Start));
+        buffThread8 = new Thread(new ThreadStart(buffer5.Start));
         thread1 = new Thread(new ThreadStart(button_panel_thread_panel_button_blue1.Start));
         thread2 = new Thread(new ThreadStart(runway_panel_thread_panel_runway1.Start));
         thread3 = new Thread(new ThreadStart(button_panel_thread_panel_button_red1.Start));
@@ -153,6 +165,12 @@ public class Form1 : Form
         buffThread4.Start();
         semThread5.Start();
         buffThread5.Start();
+        semThread6.Start();
+        buffThread6.Start();
+        semThread7.Start();
+        buffThread7.Start();
+        semThread8.Start();
+        buffThread8.Start();
         thread1.Start();
         thread2.Start();
         thread3.Start();
