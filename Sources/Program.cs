@@ -20,7 +20,10 @@ public class Form1 : Form
     private LinkPanelThread link_panel_thread_panel_link1, link_panel_thread_panel_link2, link_panel_thread_panel_link3, link_panel_thread_panel_link4;
     private Panel panel_runway1;
     private RunwayPanelThread runway_panel_thread_panel_runway1;
-    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9;
+    private Panel panel_crossing_type1;
+    private CrossingType1PanelThread crossing_type1_panel_thread_panel_crossing_type1;
+    private Panel panel_crossing_type2;
+    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9, thread10;
     private Semaphore semaphore1, semaphore2, semaphore3, semaphore4, semaphore5, semaphore6, semaphore7, semaphore8;
     private Buffer buffer1, buffer2, buffer3, buffer4, buffer5, buffer6, buffer7, buffer8;
     private Thread semThread1, semThread2, semThread3, semThread4, semThread5, semThread6, semThread7, semThread8;
@@ -109,7 +112,7 @@ public class Form1 : Form
                      semaphore4,
                      buffer4);
 
-        link_panel_thread_panel_link4 = new LinkPanelThread(new Point(8, 10),
+        link_panel_thread_panel_link4 = new LinkPanelThread(new Point(10, 8),
                         28,
                      100, 3, panel_link4,
                      Color.White,
@@ -118,12 +121,24 @@ public class Form1 : Form
                      semaphore5,
                      buffer5);
 
-        runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(10, 10),
-                                23,
-                             100, 1, panel_runway1,
+        crossing_type1_panel_thread_panel_crossing_type1 = new CrossingType1PanelThread(new Point(640, 10),
+                        63,
+                     100, 2, panel_crossing_type1,
+                     Color.White,
+                     semaphore5,
+                     buffer5,
+                     true,
+                     semaphore6,
+                     buffer6,
+                     semaphore7,
+                     buffer7);
+
+        runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(323, 10),
+                                31,
+                             100, 2, panel_runway1,
                              Color.White,
-                             semaphore5,
-                             buffer5);
+                             semaphore6,
+                             buffer6);
 
 
         semThread1 = new Thread(new ThreadStart(semaphore1.Start));
@@ -151,6 +166,7 @@ public class Form1 : Form
         thread7 = new Thread(new ThreadStart(button_panel_thread_panel_button_purple1.Start));
         thread8 = new Thread(new ThreadStart(link_panel_thread_panel_link3.Start));
         thread9 = new Thread(new ThreadStart(link_panel_thread_panel_link4.Start));
+        thread10 = new Thread(new ThreadStart(crossing_type1_panel_thread_panel_crossing_type1.Start));
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
@@ -180,6 +196,7 @@ public class Form1 : Form
         thread7.Start();
         thread8.Start();
         thread9.Start();
+        thread10.Start();
 
     }
 
@@ -209,6 +226,8 @@ public class Form1 : Form
             this.button_purple1 = new System.Windows.Forms.Button();
             this.panel_link3 = new System.Windows.Forms.Panel();
             this.panel_link4 = new System.Windows.Forms.Panel();
+            this.panel_crossing_type2 = new System.Windows.Forms.Panel();
+            this.panel_crossing_type1 = new System.Windows.Forms.Panel();
             this.panel_button_blue1.SuspendLayout();
             this.panel_button_red1.SuspendLayout();
             this.panel_button_green1.SuspendLayout();
@@ -236,9 +255,9 @@ public class Form1 : Form
             // panel_runway1
             // 
             this.panel_runway1.BackColor = System.Drawing.Color.White;
-            this.panel_runway1.Location = new System.Drawing.Point(370, 519);
+            this.panel_runway1.Location = new System.Drawing.Point(28, 519);
             this.panel_runway1.Name = "panel_runway1";
-            this.panel_runway1.Size = new System.Drawing.Size(648, 30);
+            this.panel_runway1.Size = new System.Drawing.Size(336, 30);
             this.panel_runway1.TabIndex = 1;
             // 
             // panel_button_red1
@@ -327,10 +346,28 @@ public class Form1 : Form
             this.panel_link4.Size = new System.Drawing.Size(30, 312);
             this.panel_link4.TabIndex = 6;
             // 
+            // panel_crossing_type2
+            // 
+            this.panel_crossing_type2.BackColor = System.Drawing.Color.White;
+            this.panel_crossing_type2.Location = new System.Drawing.Point(370, 296);
+            this.panel_crossing_type2.Name = "panel_crossing_type2";
+            this.panel_crossing_type2.Size = new System.Drawing.Size(30, 217);
+            this.panel_crossing_type2.TabIndex = 7;
+            // 
+            // panel_crossing_type1
+            // 
+            this.panel_crossing_type1.BackColor = System.Drawing.Color.White;
+            this.panel_crossing_type1.Location = new System.Drawing.Point(370, 519);
+            this.panel_crossing_type1.Name = "panel_crossing_type1";
+            this.panel_crossing_type1.Size = new System.Drawing.Size(648, 29);
+            this.panel_crossing_type1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1246, 585);
+            this.Controls.Add(this.panel_crossing_type1);
+            this.Controls.Add(this.panel_crossing_type2);
             this.Controls.Add(this.panel_link4);
             this.Controls.Add(this.panel_link3);
             this.Controls.Add(this.panel_button_purple1);
@@ -639,7 +676,7 @@ public class LinkPanelThread
     }
 }// end class LinkPanelThread
 
-public class CrossingPanelThread
+public class CrossingType1PanelThread
 {
     private Point origin;
     int length_to_go;
@@ -659,7 +696,7 @@ public class CrossingPanelThread
     private Buffer next_buffer2;
 
 
-    public CrossingPanelThread(Point origin,
+    public CrossingType1PanelThread(Point origin,
                        int length_to_go,
                        int delay,
                        int direction,
@@ -753,7 +790,123 @@ public class CrossingPanelThread
         brush.Dispose();    //  Dispose graphics resources. 
         g.Dispose();        //  
     }
-}// end class CrossingPanelThread
+}// end class CrossingType1PanelThread
+
+public class CrossingType2PanelThread
+{
+    private Point origin;
+    int length_to_go;
+    private int delay;
+    private Panel panel;
+    private int direction;
+    private Color colour;
+    private Point plane;
+    private int xDelta;
+    private int yDelta;
+    private Semaphore semaphore;
+    private Buffer buffer;
+    private bool what_road;
+    private Semaphore next_semaphore1;
+    private Buffer next_buffer1;
+    private Semaphore next_semaphore2;
+    private Buffer next_buffer2;
+
+
+    public CrossingType2PanelThread(Point origin,
+                       int length_to_go,
+                       int delay,
+                       int direction,
+                       Panel panel,
+                       Color colour,
+                       Semaphore semaphore,
+                       Buffer buffer,
+                       bool what_road,
+                       Semaphore next_semaphore1,
+                       Buffer next_buffer1,
+                        Semaphore next_semaphore2,
+                       Buffer next_buffer2)
+    {
+        this.origin = origin;
+        this.length_to_go = length_to_go;
+        this.delay = delay;
+        this.direction = direction;
+        this.panel = panel;
+        this.colour = colour;
+        this.plane = origin;
+        this.panel.Paint += new PaintEventHandler(this.panel_Paint);
+        this.xDelta = (direction == 1) ? +10 : ((direction == 2) ? -10 : 0);
+        this.yDelta = (direction == 3) ? +10 : ((direction == 4) ? -10 : 0);
+        this.semaphore = semaphore;
+        this.buffer = buffer;
+        this.what_road = what_road;
+        this.next_semaphore1 = next_semaphore1;
+        this.next_buffer1 = next_buffer1;
+        this.next_semaphore2 = next_semaphore2;
+        this.next_buffer2 = next_buffer2;
+
+    }
+
+    public void Start()
+    {
+
+        //Thread.Sleep(delay);
+        this.colour = Color.White;
+        while (true)
+        {
+            semaphore.Signal();
+            this.zeroPlane();
+
+            buffer.Read(ref this.colour);
+
+            for (int i = 1; i <= length_to_go; i++)
+            {
+
+                panel.Invalidate();
+                this.movePlane(xDelta, yDelta);
+                Thread.Sleep(delay);
+
+            }
+            /* les lignes qui changent tout */
+            if (what_road)
+            {
+                next_semaphore1.Wait();
+                next_buffer1.Write(this.colour);
+            }
+            else
+            {
+                next_semaphore2.Wait();
+                next_buffer2.Write(this.colour);
+            }
+            /*------------------------------*/
+            this.colour = Color.White;
+            panel.Invalidate();
+
+
+        }
+        this.colour = Color.Gray;
+        panel.Invalidate();
+    }
+
+    private void zeroPlane()
+    {
+        plane.X = origin.X;
+        plane.Y = origin.Y;
+    }
+
+    private void movePlane(int xDelta, int yDelta)
+    {
+        plane.X += xDelta; plane.Y += yDelta;
+    }
+
+    private void panel_Paint(object sender, PaintEventArgs e)
+    {
+        Graphics g = e.Graphics;
+        SolidBrush brush = new SolidBrush(colour);
+        g.FillRectangle(brush, plane.X, plane.Y, 10, 10);
+        brush.Dispose();    //  Dispose graphics resources. 
+        g.Dispose();        //  
+    }
+}// end class CrossingType2PanelThread
 
 public class RunwayPanelThread
 {
