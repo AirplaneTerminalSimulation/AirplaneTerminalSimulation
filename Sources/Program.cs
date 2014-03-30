@@ -211,7 +211,7 @@ public class Form1 : Form
             // 
             this.panel_button_green1.BackColor = System.Drawing.Color.White;
             this.panel_button_green1.Controls.Add(this.button_green1);
-            this.panel_button_green1.Location = new System.Drawing.Point(556, 68);
+            this.panel_button_green1.Location = new System.Drawing.Point(576, 68);
             this.panel_button_green1.Name = "panel_button_green1";
             this.panel_button_green1.Size = new System.Drawing.Size(30, 126);
             this.panel_button_green1.TabIndex = 1;
