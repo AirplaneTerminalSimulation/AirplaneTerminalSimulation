@@ -104,7 +104,7 @@ public class Form1 : Form
                      buffer4);
 
         link_panel_thread_panel_link4 = new LinkPanelThread(new Point(8, 10),
-                        13,
+                        28,
                      100, 3, panel_link4,
                      Color.White,
                      semaphore4,
@@ -218,9 +218,9 @@ public class Form1 : Form
             // panel_runway1
             // 
             this.panel_runway1.BackColor = System.Drawing.Color.White;
-            this.panel_runway1.Location = new System.Drawing.Point(782, 406);
+            this.panel_runway1.Location = new System.Drawing.Point(370, 519);
             this.panel_runway1.Name = "panel_runway1";
-            this.panel_runway1.Size = new System.Drawing.Size(260, 30);
+            this.panel_runway1.Size = new System.Drawing.Size(648, 30);
             this.panel_runway1.TabIndex = 1;
             // 
             // panel_button_red1
@@ -306,7 +306,7 @@ public class Form1 : Form
             this.panel_link4.BackColor = System.Drawing.Color.White;
             this.panel_link4.Location = new System.Drawing.Point(988, 201);
             this.panel_link4.Name = "panel_link4";
-            this.panel_link4.Size = new System.Drawing.Size(30, 159);
+            this.panel_link4.Size = new System.Drawing.Size(30, 312);
             this.panel_link4.TabIndex = 6;
             // 
             // Form1
