@@ -16,11 +16,11 @@ public class Form1 : Form
     private Panel panel_button_blue1, panel_button_red1, panel_button_green1, panel_button_purple1;
     private Button button_blue1, button_red1, button_green1, button_purple1;
     private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_panel_button_red1, button_panel_thread_panel_button_green1, button_panel_thread_panel_button_purple1;
-    private Panel panel_link1, panel_link2;
-    private LinkPanelThread link_panel_thread_panel_link1, link_panel_thread_panel_link2;
+    private Panel panel_link1, panel_link2, panel_link3;
+    private LinkPanelThread link_panel_thread_panel_link1, link_panel_thread_panel_link2, link_panel_thread_panel_link3;
     private Panel panel_runway1;
     private RunwayPanelThread runway_panel_thread_panel_runway1;
-    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7;
+    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8;
     private Semaphore semaphore1, semaphore2, semaphore3, semaphore4;
     private Buffer buffer1, buffer2, buffer3, buffer4;
     private Thread semThread1, semThread2, semThread3, semThread4;
@@ -92,12 +92,21 @@ public class Form1 : Form
                      semaphore3,
                      buffer3);
 
+        link_panel_thread_panel_link3 = new LinkPanelThread(new Point(8, 10),
+                        17,
+                     100, 1, panel_link3,
+                     Color.White,
+                     semaphore3,
+                     buffer3,
+                     semaphore4,
+                     buffer4);
+
         runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(10, 10),
                                 23,
                              100, 1, panel_runway1,
                              Color.White,
-                             semaphore3,
-                             buffer3);
+                             semaphore4,
+                             buffer4);
 
 
         semThread1 = new Thread(new ThreadStart(semaphore1.Start));
@@ -115,6 +124,7 @@ public class Form1 : Form
         thread5 = new Thread(new ThreadStart(link_panel_thread_panel_link2.Start));
         thread6 = new Thread(new ThreadStart(button_panel_thread_panel_button_green1.Start));
         thread7 = new Thread(new ThreadStart(button_panel_thread_panel_button_purple1.Start));
+        thread8 = new Thread(new ThreadStart(link_panel_thread_panel_link3.Start));
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
@@ -134,6 +144,7 @@ public class Form1 : Form
         thread5.Start();
         thread6.Start();
         thread7.Start();
+        thread8.Start();
 
     }
 
@@ -161,6 +172,7 @@ public class Form1 : Form
             this.button_green1 = new System.Windows.Forms.Button();
             this.panel_button_purple1 = new System.Windows.Forms.Panel();
             this.button_purple1 = new System.Windows.Forms.Button();
+            this.panel_link3 = new System.Windows.Forms.Panel();
             this.panel_button_blue1.SuspendLayout();
             this.panel_button_red1.SuspendLayout();
             this.panel_button_green1.SuspendLayout();
@@ -188,7 +200,7 @@ public class Form1 : Form
             // panel_runway1
             // 
             this.panel_runway1.BackColor = System.Drawing.Color.White;
-            this.panel_runway1.Location = new System.Drawing.Point(782, 200);
+            this.panel_runway1.Location = new System.Drawing.Point(782, 406);
             this.panel_runway1.Name = "panel_runway1";
             this.panel_runway1.Size = new System.Drawing.Size(260, 30);
             this.panel_runway1.TabIndex = 1;
@@ -263,10 +275,19 @@ public class Form1 : Form
             this.button_purple1.TabIndex = 0;
             this.button_purple1.UseVisualStyleBackColor = false;
             // 
+            // panel_link3
+            // 
+            this.panel_link3.BackColor = System.Drawing.Color.White;
+            this.panel_link3.Location = new System.Drawing.Point(782, 201);
+            this.panel_link3.Name = "panel_link3";
+            this.panel_link3.Size = new System.Drawing.Size(200, 29);
+            this.panel_link3.TabIndex = 5;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1246, 585);
+            this.Controls.Add(this.panel_link3);
             this.Controls.Add(this.panel_button_purple1);
             this.Controls.Add(this.panel_button_green1);
             this.Controls.Add(this.panel_link2);
