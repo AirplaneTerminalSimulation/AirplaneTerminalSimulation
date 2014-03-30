@@ -21,10 +21,10 @@ public class Form1 : Form
     private Panel panel_runway1;
     private RunwayPanelThread runway_panel_thread_panel_runway1;
     private Thread thread1, thread2, thread3, thread4;
-    private Semaphore semaphore1, semaphore2;
-    private Buffer buffer1, buffer2;
-    private Thread semThread1, semThread2;
-    private Thread buffThread1, buffThread2;
+    private Semaphore semaphore1, semaphore2, semaphore3;
+    private Buffer buffer1, buffer2, buffer3;
+    private Thread semThread1, semThread2, semThread3;
+    private Thread buffThread1, buffThread2, buffThread3;
 
     public Form1()
     {
@@ -35,6 +35,8 @@ public class Form1 : Form
         buffer1 = new Buffer();
         semaphore2 = new Semaphore();
         buffer2 = new Buffer();
+        semaphore3 = new Semaphore();
+        buffer3 = new Buffer();
 
 
         button_panel_thread_panel_button_blue1 = new ButtonPanelThread(new Point(10, 40),
@@ -74,6 +76,8 @@ public class Form1 : Form
         buffThread1 = new Thread(new ThreadStart(buffer1.Start));
         semThread2 = new Thread(new ThreadStart(semaphore2.Start));
         buffThread2 = new Thread(new ThreadStart(buffer2.Start));
+        semThread3 = new Thread(new ThreadStart(semaphore3.Start));
+        buffThread3 = new Thread(new ThreadStart(buffer3.Start));
         thread1 = new Thread(new ThreadStart(button_panel_thread_panel_button_blue1.Start));
         thread2 = new Thread(new ThreadStart(runway_panel_thread_panel_runway1.Start));
         thread3 = new Thread(new ThreadStart(button_panel_thread_panel_button_red1.Start));
@@ -86,6 +90,8 @@ public class Form1 : Form
         buffThread1.Start();
         semThread2.Start();
         buffThread2.Start();
+        semThread3.Start();
+        buffThread3.Start();
         thread1.Start();
         thread2.Start();
         thread3.Start();
