@@ -13,14 +13,14 @@ public class Form1 : Form
 {
 
     private Container components = null;
-    private Panel panel_button_blue1, panel_button_red1;
-    private Button button_blue1, button_red1;
-    private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_panel_button_red1;
+    private Panel panel_button_blue1, panel_button_red1, panel_button_green1;
+    private Button button_blue1, button_red1, button_green1;
+    private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_panel_button_red1, button_panel_thread_panel_button_green1;
     private Panel panel_link1, panel_link2;
     private LinkPanelThread link_panel_thread_panel_link1, link_panel_thread_panel_link2;
     private Panel panel_runway1;
     private RunwayPanelThread runway_panel_thread_panel_runway1;
-    private Thread thread1, thread2, thread3, thread4, thread5;
+    private Thread thread1, thread2, thread3, thread4, thread5, thread6;
     private Semaphore semaphore1, semaphore2, semaphore3;
     private Buffer buffer1, buffer2, buffer3;
     private Thread semThread1, semThread2, semThread3;
@@ -54,6 +54,14 @@ public class Form1 : Form
                      semaphore1,
                      buffer1,
                      button_red1);
+
+        button_panel_thread_panel_button_green1 = new ButtonPanelThread(new Point(10, 40),
+                        7,
+                     120, 3, panel_button_green1,
+                     Color.Green,
+                     semaphore2,
+                     buffer2,
+                     button_green1);
 
         link_panel_thread_panel_link1 = new LinkPanelThread(new Point(8, 10),
                                 17,
@@ -92,6 +100,7 @@ public class Form1 : Form
         thread3 = new Thread(new ThreadStart(button_panel_thread_panel_button_red1.Start));
         thread4 = new Thread(new ThreadStart(link_panel_thread_panel_link1.Start));
         thread5 = new Thread(new ThreadStart(link_panel_thread_panel_link2.Start));
+        thread6 = new Thread(new ThreadStart(button_panel_thread_panel_button_green1.Start));
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
@@ -107,6 +116,7 @@ public class Form1 : Form
         thread3.Start();
         thread4.Start();
         thread5.Start();
+        thread6.Start();
 
     }
 
@@ -130,8 +140,11 @@ public class Form1 : Form
             this.button_red1 = new System.Windows.Forms.Button();
             this.panel_link1 = new System.Windows.Forms.Panel();
             this.panel_link2 = new System.Windows.Forms.Panel();
+            this.panel_button_green1 = new System.Windows.Forms.Panel();
+            this.button_green1 = new System.Windows.Forms.Button();
             this.panel_button_blue1.SuspendLayout();
             this.panel_button_red1.SuspendLayout();
+            this.panel_button_green1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_button_blue1
@@ -194,10 +207,29 @@ public class Form1 : Form
             this.panel_link2.Size = new System.Drawing.Size(200, 30);
             this.panel_link2.TabIndex = 4;
             // 
+            // panel_button_green1
+            // 
+            this.panel_button_green1.BackColor = System.Drawing.Color.White;
+            this.panel_button_green1.Controls.Add(this.button_green1);
+            this.panel_button_green1.Location = new System.Drawing.Point(556, 68);
+            this.panel_button_green1.Name = "panel_button_green1";
+            this.panel_button_green1.Size = new System.Drawing.Size(30, 126);
+            this.panel_button_green1.TabIndex = 1;
+            // 
+            // button_green1
+            // 
+            this.button_green1.BackColor = System.Drawing.Color.Pink;
+            this.button_green1.Location = new System.Drawing.Point(0, 0);
+            this.button_green1.Name = "button_green1";
+            this.button_green1.Size = new System.Drawing.Size(30, 30);
+            this.button_green1.TabIndex = 0;
+            this.button_green1.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1246, 585);
+            this.Controls.Add(this.panel_button_green1);
             this.Controls.Add(this.panel_link2);
             this.Controls.Add(this.panel_link1);
             this.Controls.Add(this.panel_button_blue1);
@@ -208,6 +240,7 @@ public class Form1 : Form
             this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
             this.panel_button_blue1.ResumeLayout(false);
             this.panel_button_red1.ResumeLayout(false);
+            this.panel_button_green1.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
