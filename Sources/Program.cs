@@ -772,6 +772,95 @@ public class RunwayPanelThread
     }
 }// end class RunwayPanelThread
 
+public class GarageyPanelThread
+{
+    private Point origin;
+    int length_to_go;
+    private int delay;
+    private Panel panel;
+    private int direction;
+    private Color colour;
+    private Point plane;
+    private int xDelta;
+    private int yDelta;
+    private Semaphore semaphore;
+    private Buffer buffer;
+
+
+    public GarageyPanelThread(Point origin,
+                       int length_to_go,
+                       int delay,
+                       int direction,
+                       Panel panel,
+                       Color colour,
+                       Semaphore semaphore,
+                       Buffer buffer)
+    {
+        this.origin = origin;
+        this.length_to_go = length_to_go;
+        this.delay = delay;
+        this.direction = direction;
+        this.panel = panel;
+        this.colour = colour;
+        this.plane = origin;
+        this.panel.Paint += new PaintEventHandler(this.panel_Paint);
+        this.xDelta = (direction == 1) ? +10 : ((direction == 2) ? -10 : 0);
+        this.yDelta = (direction == 3) ? +10 : ((direction == 4) ? -10 : 0);
+        this.semaphore = semaphore;
+        this.buffer = buffer;
+
+    }
+
+    public void Start()
+    {
+
+        //Thread.Sleep(delay);
+        this.colour = Color.White;
+        while (true)
+        {
+            semaphore.Signal();
+            this.zeroPlane();
+
+            buffer.Read(ref this.colour);
+
+            for (int i = 1; i <= length_to_go; i++)
+            {
+
+                panel.Invalidate();
+                this.movePlane(xDelta, yDelta);
+                Thread.Sleep(delay);
+
+            }
+            this.colour = Color.White;
+            panel.Invalidate();
+
+
+        }
+        this.colour = Color.Gray;
+        panel.Invalidate();
+    }
+
+    private void zeroPlane()
+    {
+        plane.X = origin.X;
+        plane.Y = origin.Y;
+    }
+
+    private void movePlane(int xDelta, int yDelta)
+    {
+        plane.X += xDelta; plane.Y += yDelta;
+    }
+
+    private void panel_Paint(object sender, PaintEventArgs e)
+    {
+        Graphics g = e.Graphics;
+        SolidBrush brush = new SolidBrush(colour);
+        g.FillRectangle(brush, plane.X, plane.Y, 10, 10);
+        brush.Dispose();    //  Dispose graphics resources. 
+        g.Dispose();        //  
+    }
+}// end class GarageyPanelThread
+
 public class TheOne
 {
     public static void Main()//
