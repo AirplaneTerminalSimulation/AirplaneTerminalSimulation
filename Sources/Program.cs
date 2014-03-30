@@ -580,8 +580,11 @@ public class CrossingPanelThread
     private int yDelta;
     private Semaphore semaphore;
     private Buffer buffer;
-    private Semaphore next_semaphore;
-    private Buffer next_buffer;
+    private bool what_road;
+    private Semaphore next_semaphore1;
+    private Buffer next_buffer1;
+    private Semaphore next_semaphore2;
+    private Buffer next_buffer2;
 
 
     public CrossingPanelThread(Point origin,
@@ -592,8 +595,11 @@ public class CrossingPanelThread
                        Color colour,
                        Semaphore semaphore,
                        Buffer buffer,
-                       Semaphore next_semaphore,
-                       Buffer next_buffer)
+                       bool what_road,
+                       Semaphore next_semaphore1,
+                       Buffer next_buffer1,
+                        Semaphore next_semaphore2,
+                       Buffer next_buffer2)
     {
         this.origin = origin;
         this.length_to_go = length_to_go;
@@ -607,8 +613,11 @@ public class CrossingPanelThread
         this.yDelta = (direction == 3) ? +10 : ((direction == 4) ? -10 : 0);
         this.semaphore = semaphore;
         this.buffer = buffer;
-        this.next_semaphore = next_semaphore;
-        this.next_buffer = next_buffer;
+        this.what_road = what_road;
+        this.next_semaphore1 = next_semaphore1;
+        this.next_buffer1 = next_buffer1;
+        this.next_semaphore2 = next_semaphore2;
+        this.next_buffer2 = next_buffer2;
 
     }
 
@@ -633,8 +642,16 @@ public class CrossingPanelThread
 
             }
             /* les lignes qui changent tout */
-            next_semaphore.Wait();
-            next_buffer.Write(this.colour);
+            if (what_road)
+            {
+                next_semaphore1.Wait();
+                next_buffer1.Write(this.colour);
+            }
+            else
+            {
+                next_semaphore2.Wait();
+                next_buffer2.Write(this.colour);
+            }
             /*------------------------------*/
             this.colour = Color.White;
             panel.Invalidate();
