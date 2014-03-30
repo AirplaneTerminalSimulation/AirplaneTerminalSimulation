@@ -16,11 +16,11 @@ public class Form1 : Form
     private Panel panel_button_blue1, panel_button_red1;
     private Button button_blue1, button_red1;
     private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_panel_button_red1;
-    private Panel panel_link1;
-    private LinkPanelThread link_panel_thread_panel_link1;
+    private Panel panel_link1, panel_link2;
+    private LinkPanelThread link_panel_thread_panel_link1, link_panel_thread_panel_link2;
     private Panel panel_runway1;
     private RunwayPanelThread runway_panel_thread_panel_runway1;
-    private Thread thread1, thread2, thread3, thread4;
+    private Thread thread1, thread2, thread3, thread4, thread5;
     private Semaphore semaphore1, semaphore2, semaphore3;
     private Buffer buffer1, buffer2, buffer3;
     private Thread semThread1, semThread2, semThread3;
@@ -64,12 +64,21 @@ public class Form1 : Form
                              semaphore2,
                              buffer2);
 
+        link_panel_thread_panel_link2 = new LinkPanelThread(new Point(8, 10),
+                        17,
+                     100, 1, panel_link2,
+                     Color.White,
+                     semaphore2,
+                     buffer2,
+                     semaphore3,
+                     buffer3);
+
         runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(40, 10),
                                 23,
                              100, 1, panel_runway1,
                              Color.White,
-                             semaphore2,
-                             buffer2);
+                             semaphore3,
+                             buffer3);
 
 
         semThread1 = new Thread(new ThreadStart(semaphore1.Start));
@@ -82,6 +91,7 @@ public class Form1 : Form
         thread2 = new Thread(new ThreadStart(runway_panel_thread_panel_runway1.Start));
         thread3 = new Thread(new ThreadStart(button_panel_thread_panel_button_red1.Start));
         thread4 = new Thread(new ThreadStart(link_panel_thread_panel_link1.Start));
+        thread5 = new Thread(new ThreadStart(link_panel_thread_panel_link2.Start));
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
@@ -96,6 +106,7 @@ public class Form1 : Form
         thread2.Start();
         thread3.Start();
         thread4.Start();
+        thread5.Start();
 
     }
 
@@ -118,6 +129,7 @@ public class Form1 : Form
             this.panel_button_red1 = new System.Windows.Forms.Panel();
             this.button_red1 = new System.Windows.Forms.Button();
             this.panel_link1 = new System.Windows.Forms.Panel();
+            this.panel_link2 = new System.Windows.Forms.Panel();
             this.panel_button_blue1.SuspendLayout();
             this.panel_button_red1.SuspendLayout();
             this.SuspendLayout();
@@ -143,7 +155,7 @@ public class Form1 : Form
             // panel_runway1
             // 
             this.panel_runway1.BackColor = System.Drawing.Color.White;
-            this.panel_runway1.Location = new System.Drawing.Point(576, 200);
+            this.panel_runway1.Location = new System.Drawing.Point(782, 200);
             this.panel_runway1.Name = "panel_runway1";
             this.panel_runway1.Size = new System.Drawing.Size(260, 30);
             this.panel_runway1.TabIndex = 1;
@@ -174,10 +186,19 @@ public class Form1 : Form
             this.panel_link1.Size = new System.Drawing.Size(200, 30);
             this.panel_link1.TabIndex = 3;
             // 
+            // panel_link2
+            // 
+            this.panel_link2.BackColor = System.Drawing.Color.White;
+            this.panel_link2.Location = new System.Drawing.Point(576, 200);
+            this.panel_link2.Name = "panel_link2";
+            this.panel_link2.Size = new System.Drawing.Size(200, 30);
+            this.panel_link2.TabIndex = 4;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1044, 461);
+            this.ClientSize = new System.Drawing.Size(1246, 585);
+            this.Controls.Add(this.panel_link2);
             this.Controls.Add(this.panel_link1);
             this.Controls.Add(this.panel_button_blue1);
             this.Controls.Add(this.panel_runway1);
