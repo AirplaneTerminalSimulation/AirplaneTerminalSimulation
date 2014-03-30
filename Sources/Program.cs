@@ -772,7 +772,7 @@ public class RunwayPanelThread
     }
 }// end class RunwayPanelThread
 
-public class GarageyPanelThread
+public class GaragePanelThread
 {
     private Point origin;
     int length_to_go;
@@ -787,7 +787,7 @@ public class GarageyPanelThread
     private Buffer buffer;
 
 
-    public GarageyPanelThread(Point origin,
+    public GaragePanelThread(Point origin,
                        int length_to_go,
                        int delay,
                        int direction,
@@ -859,7 +859,7 @@ public class GarageyPanelThread
         brush.Dispose();    //  Dispose graphics resources. 
         g.Dispose();        //  
     }
-}// end class GarageyPanelThread
+}// end class GaragePanelThread
 
 public class TheOne
 {
