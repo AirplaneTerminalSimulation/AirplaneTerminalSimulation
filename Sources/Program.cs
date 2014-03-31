@@ -960,6 +960,7 @@ public class CrossingType2PanelThread
     private Buffer next_buffer1;
     private Semaphore next_semaphore2;
     private Buffer next_buffer2;
+    private Random rand = new Random();
 
 
     public CrossingType2PanelThread(Point origin,
@@ -1017,7 +1018,7 @@ public class CrossingType2PanelThread
 
             }
             /* les lignes qui changent tout */
-            if (what_road)
+            if (rand.NextDouble() > 0.5)
             {
                 next_semaphore1.Wait();
                 next_buffer1.Write(this.colour);
