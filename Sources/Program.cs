@@ -159,7 +159,6 @@ public class Form1 : Form
                      Color.White,
                      semaphore5,
                      buffer5,
-                     false,
                      semaphore6,
                      buffer6,
                      semaphore7,
@@ -291,254 +290,254 @@ public class Form1 : Form
 
     private void InitializeComponent()
     {
-            this.panel_button_blue1 = new System.Windows.Forms.Panel();
-            this.button_blue1 = new System.Windows.Forms.Button();
-            this.panel_runway1 = new System.Windows.Forms.Panel();
-            this.panel_button_red1 = new System.Windows.Forms.Panel();
-            this.button_red1 = new System.Windows.Forms.Button();
-            this.panel_link1 = new System.Windows.Forms.Panel();
-            this.panel_link2 = new System.Windows.Forms.Panel();
-            this.panel_button_green1 = new System.Windows.Forms.Panel();
-            this.button_green1 = new System.Windows.Forms.Button();
-            this.panel_button_purple1 = new System.Windows.Forms.Panel();
-            this.button_purple1 = new System.Windows.Forms.Button();
-            this.panel_link3 = new System.Windows.Forms.Panel();
-            this.panel_link4 = new System.Windows.Forms.Panel();
-            this.panel_crossing_type2 = new System.Windows.Forms.Panel();
-            this.panel_crossing_type1 = new System.Windows.Forms.Panel();
-            this.panel_link5 = new System.Windows.Forms.Panel();
-            this.panel_garage1 = new System.Windows.Forms.Panel();
-            this.panel_garage2 = new System.Windows.Forms.Panel();
-            this.panel_button_yellow1 = new System.Windows.Forms.Panel();
-            this.button_yellow1 = new System.Windows.Forms.Button();
-            this.panel_button_orange1 = new System.Windows.Forms.Panel();
-            this.button_orange1 = new System.Windows.Forms.Button();
-            this.panel_button_blue1.SuspendLayout();
-            this.panel_button_red1.SuspendLayout();
-            this.panel_button_green1.SuspendLayout();
-            this.panel_button_purple1.SuspendLayout();
-            this.panel_button_yellow1.SuspendLayout();
-            this.panel_button_orange1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // panel_button_blue1
-            // 
-            this.panel_button_blue1.BackColor = System.Drawing.Color.White;
-            this.panel_button_blue1.Controls.Add(this.button_blue1);
-            this.panel_button_blue1.Location = new System.Drawing.Point(370, 68);
-            this.panel_button_blue1.Name = "panel_button_blue1";
-            this.panel_button_blue1.Size = new System.Drawing.Size(30, 126);
-            this.panel_button_blue1.TabIndex = 0;
-            // 
-            // button_blue1
-            // 
-            this.button_blue1.BackColor = System.Drawing.Color.Pink;
-            this.button_blue1.Location = new System.Drawing.Point(0, 0);
-            this.button_blue1.Name = "button_blue1";
-            this.button_blue1.Size = new System.Drawing.Size(30, 30);
-            this.button_blue1.TabIndex = 0;
-            this.button_blue1.UseVisualStyleBackColor = false;
-            // 
-            // panel_runway1
-            // 
-            this.panel_runway1.BackColor = System.Drawing.Color.White;
-            this.panel_runway1.Location = new System.Drawing.Point(28, 519);
-            this.panel_runway1.Name = "panel_runway1";
-            this.panel_runway1.Size = new System.Drawing.Size(336, 30);
-            this.panel_runway1.TabIndex = 1;
-            // 
-            // panel_button_red1
-            // 
-            this.panel_button_red1.BackColor = System.Drawing.Color.White;
-            this.panel_button_red1.Controls.Add(this.button_red1);
-            this.panel_button_red1.Location = new System.Drawing.Point(104, 200);
-            this.panel_button_red1.Name = "panel_button_red1";
-            this.panel_button_red1.Size = new System.Drawing.Size(260, 30);
-            this.panel_button_red1.TabIndex = 2;
-            // 
-            // button_red1
-            // 
-            this.button_red1.BackColor = System.Drawing.Color.Pink;
-            this.button_red1.Location = new System.Drawing.Point(0, 0);
-            this.button_red1.Name = "button_red1";
-            this.button_red1.Size = new System.Drawing.Size(30, 30);
-            this.button_red1.TabIndex = 0;
-            this.button_red1.UseVisualStyleBackColor = false;
-            // 
-            // panel_link1
-            // 
-            this.panel_link1.BackColor = System.Drawing.Color.White;
-            this.panel_link1.Location = new System.Drawing.Point(370, 200);
-            this.panel_link1.Name = "panel_link1";
-            this.panel_link1.Size = new System.Drawing.Size(200, 30);
-            this.panel_link1.TabIndex = 3;
-            // 
-            // panel_link2
-            // 
-            this.panel_link2.BackColor = System.Drawing.Color.White;
-            this.panel_link2.Location = new System.Drawing.Point(576, 200);
-            this.panel_link2.Name = "panel_link2";
-            this.panel_link2.Size = new System.Drawing.Size(200, 30);
-            this.panel_link2.TabIndex = 4;
-            // 
-            // panel_button_green1
-            // 
-            this.panel_button_green1.BackColor = System.Drawing.Color.White;
-            this.panel_button_green1.Controls.Add(this.button_green1);
-            this.panel_button_green1.Location = new System.Drawing.Point(576, 68);
-            this.panel_button_green1.Name = "panel_button_green1";
-            this.panel_button_green1.Size = new System.Drawing.Size(30, 126);
-            this.panel_button_green1.TabIndex = 1;
-            // 
-            // button_green1
-            // 
-            this.button_green1.BackColor = System.Drawing.Color.Pink;
-            this.button_green1.Location = new System.Drawing.Point(0, 0);
-            this.button_green1.Name = "button_green1";
-            this.button_green1.Size = new System.Drawing.Size(30, 30);
-            this.button_green1.TabIndex = 0;
-            this.button_green1.UseVisualStyleBackColor = false;
-            // 
-            // panel_button_purple1
-            // 
-            this.panel_button_purple1.BackColor = System.Drawing.Color.White;
-            this.panel_button_purple1.Controls.Add(this.button_purple1);
-            this.panel_button_purple1.Location = new System.Drawing.Point(782, 68);
-            this.panel_button_purple1.Name = "panel_button_purple1";
-            this.panel_button_purple1.Size = new System.Drawing.Size(30, 126);
-            this.panel_button_purple1.TabIndex = 2;
-            // 
-            // button_purple1
-            // 
-            this.button_purple1.BackColor = System.Drawing.Color.Pink;
-            this.button_purple1.Location = new System.Drawing.Point(0, 0);
-            this.button_purple1.Name = "button_purple1";
-            this.button_purple1.Size = new System.Drawing.Size(30, 30);
-            this.button_purple1.TabIndex = 0;
-            this.button_purple1.UseVisualStyleBackColor = false;
-            // 
-            // panel_link3
-            // 
-            this.panel_link3.BackColor = System.Drawing.Color.White;
-            this.panel_link3.Location = new System.Drawing.Point(782, 201);
-            this.panel_link3.Name = "panel_link3";
-            this.panel_link3.Size = new System.Drawing.Size(200, 29);
-            this.panel_link3.TabIndex = 5;
-            // 
-            // panel_link4
-            // 
-            this.panel_link4.BackColor = System.Drawing.Color.White;
-            this.panel_link4.Location = new System.Drawing.Point(988, 201);
-            this.panel_link4.Name = "panel_link4";
-            this.panel_link4.Size = new System.Drawing.Size(30, 312);
-            this.panel_link4.TabIndex = 6;
-            // 
-            // panel_crossing_type2
-            // 
-            this.panel_crossing_type2.BackColor = System.Drawing.Color.White;
-            this.panel_crossing_type2.Location = new System.Drawing.Point(370, 405);
-            this.panel_crossing_type2.Name = "panel_crossing_type2";
-            this.panel_crossing_type2.Size = new System.Drawing.Size(30, 108);
-            this.panel_crossing_type2.TabIndex = 7;
-            // 
-            // panel_crossing_type1
-            // 
-            this.panel_crossing_type1.BackColor = System.Drawing.Color.White;
-            this.panel_crossing_type1.Location = new System.Drawing.Point(370, 519);
-            this.panel_crossing_type1.Name = "panel_crossing_type1";
-            this.panel_crossing_type1.Size = new System.Drawing.Size(648, 29);
-            this.panel_crossing_type1.TabIndex = 8;
-            // 
-            // panel_link5
-            // 
-            this.panel_link5.BackColor = System.Drawing.Color.White;
-            this.panel_link5.Location = new System.Drawing.Point(370, 293);
-            this.panel_link5.Name = "panel_link5";
-            this.panel_link5.Size = new System.Drawing.Size(30, 105);
-            this.panel_link5.TabIndex = 9;
-            // 
-            // panel_garage1
-            // 
-            this.panel_garage1.BackColor = System.Drawing.Color.White;
-            this.panel_garage1.Location = new System.Drawing.Point(406, 405);
-            this.panel_garage1.Name = "panel_garage1";
-            this.panel_garage1.Size = new System.Drawing.Size(136, 32);
-            this.panel_garage1.TabIndex = 10;
-            // 
-            // panel_garage2
-            // 
-            this.panel_garage2.BackColor = System.Drawing.Color.White;
-            this.panel_garage2.Location = new System.Drawing.Point(406, 293);
-            this.panel_garage2.Name = "panel_garage2";
-            this.panel_garage2.Size = new System.Drawing.Size(136, 32);
-            this.panel_garage2.TabIndex = 11;
-            // 
-            // panel_button_yellow1
-            // 
-            this.panel_button_yellow1.BackColor = System.Drawing.Color.White;
-            this.panel_button_yellow1.Controls.Add(this.button_yellow1);
-            this.panel_button_yellow1.Location = new System.Drawing.Point(988, 68);
-            this.panel_button_yellow1.Name = "panel_button_yellow1";
-            this.panel_button_yellow1.Size = new System.Drawing.Size(30, 126);
-            this.panel_button_yellow1.TabIndex = 3;
-            // 
-            // button_yellow1
-            // 
-            this.button_yellow1.BackColor = System.Drawing.Color.Pink;
-            this.button_yellow1.Location = new System.Drawing.Point(0, 0);
-            this.button_yellow1.Name = "button_yellow1";
-            this.button_yellow1.Size = new System.Drawing.Size(30, 30);
-            this.button_yellow1.TabIndex = 0;
-            this.button_yellow1.UseVisualStyleBackColor = false;
-            // 
-            // panel_button_orange1
-            // 
-            this.panel_button_orange1.BackColor = System.Drawing.Color.White;
-            this.panel_button_orange1.Controls.Add(this.button_orange1);
-            this.panel_button_orange1.Location = new System.Drawing.Point(1024, 519);
-            this.panel_button_orange1.Name = "panel_button_orange1";
-            this.panel_button_orange1.Size = new System.Drawing.Size(191, 29);
-            this.panel_button_orange1.TabIndex = 4;
-            // 
-            // button_orange1
-            // 
-            this.button_orange1.BackColor = System.Drawing.Color.Pink;
-            this.button_orange1.Location = new System.Drawing.Point(161, 0);
-            this.button_orange1.Name = "button_orange1";
-            this.button_orange1.Size = new System.Drawing.Size(30, 30);
-            this.button_orange1.TabIndex = 0;
-            this.button_orange1.UseVisualStyleBackColor = false;
-            // 
-            // Form1
-            // 
-            this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1246, 585);
-            this.Controls.Add(this.panel_button_orange1);
-            this.Controls.Add(this.panel_button_yellow1);
-            this.Controls.Add(this.panel_garage2);
-            this.Controls.Add(this.panel_garage1);
-            this.Controls.Add(this.panel_link5);
-            this.Controls.Add(this.panel_crossing_type1);
-            this.Controls.Add(this.panel_crossing_type2);
-            this.Controls.Add(this.panel_link4);
-            this.Controls.Add(this.panel_link3);
-            this.Controls.Add(this.panel_button_purple1);
-            this.Controls.Add(this.panel_button_green1);
-            this.Controls.Add(this.panel_link2);
-            this.Controls.Add(this.panel_link1);
-            this.Controls.Add(this.panel_button_blue1);
-            this.Controls.Add(this.panel_runway1);
-            this.Controls.Add(this.panel_button_red1);
-            this.Name = "Form1";
-            this.Text = "Bermuda Triangle Airways";
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
-            this.panel_button_blue1.ResumeLayout(false);
-            this.panel_button_red1.ResumeLayout(false);
-            this.panel_button_green1.ResumeLayout(false);
-            this.panel_button_purple1.ResumeLayout(false);
-            this.panel_button_yellow1.ResumeLayout(false);
-            this.panel_button_orange1.ResumeLayout(false);
-            this.ResumeLayout(false);
+        this.panel_button_blue1 = new System.Windows.Forms.Panel();
+        this.button_blue1 = new System.Windows.Forms.Button();
+        this.panel_runway1 = new System.Windows.Forms.Panel();
+        this.panel_button_red1 = new System.Windows.Forms.Panel();
+        this.button_red1 = new System.Windows.Forms.Button();
+        this.panel_link1 = new System.Windows.Forms.Panel();
+        this.panel_link2 = new System.Windows.Forms.Panel();
+        this.panel_button_green1 = new System.Windows.Forms.Panel();
+        this.button_green1 = new System.Windows.Forms.Button();
+        this.panel_button_purple1 = new System.Windows.Forms.Panel();
+        this.button_purple1 = new System.Windows.Forms.Button();
+        this.panel_link3 = new System.Windows.Forms.Panel();
+        this.panel_link4 = new System.Windows.Forms.Panel();
+        this.panel_crossing_type2 = new System.Windows.Forms.Panel();
+        this.panel_crossing_type1 = new System.Windows.Forms.Panel();
+        this.panel_link5 = new System.Windows.Forms.Panel();
+        this.panel_garage1 = new System.Windows.Forms.Panel();
+        this.panel_garage2 = new System.Windows.Forms.Panel();
+        this.panel_button_yellow1 = new System.Windows.Forms.Panel();
+        this.button_yellow1 = new System.Windows.Forms.Button();
+        this.panel_button_orange1 = new System.Windows.Forms.Panel();
+        this.button_orange1 = new System.Windows.Forms.Button();
+        this.panel_button_blue1.SuspendLayout();
+        this.panel_button_red1.SuspendLayout();
+        this.panel_button_green1.SuspendLayout();
+        this.panel_button_purple1.SuspendLayout();
+        this.panel_button_yellow1.SuspendLayout();
+        this.panel_button_orange1.SuspendLayout();
+        this.SuspendLayout();
+        // 
+        // panel_button_blue1
+        // 
+        this.panel_button_blue1.BackColor = System.Drawing.Color.White;
+        this.panel_button_blue1.Controls.Add(this.button_blue1);
+        this.panel_button_blue1.Location = new System.Drawing.Point(370, 68);
+        this.panel_button_blue1.Name = "panel_button_blue1";
+        this.panel_button_blue1.Size = new System.Drawing.Size(30, 126);
+        this.panel_button_blue1.TabIndex = 0;
+        // 
+        // button_blue1
+        // 
+        this.button_blue1.BackColor = System.Drawing.Color.Pink;
+        this.button_blue1.Location = new System.Drawing.Point(0, 0);
+        this.button_blue1.Name = "button_blue1";
+        this.button_blue1.Size = new System.Drawing.Size(30, 30);
+        this.button_blue1.TabIndex = 0;
+        this.button_blue1.UseVisualStyleBackColor = false;
+        // 
+        // panel_runway1
+        // 
+        this.panel_runway1.BackColor = System.Drawing.Color.White;
+        this.panel_runway1.Location = new System.Drawing.Point(28, 519);
+        this.panel_runway1.Name = "panel_runway1";
+        this.panel_runway1.Size = new System.Drawing.Size(336, 30);
+        this.panel_runway1.TabIndex = 1;
+        // 
+        // panel_button_red1
+        // 
+        this.panel_button_red1.BackColor = System.Drawing.Color.White;
+        this.panel_button_red1.Controls.Add(this.button_red1);
+        this.panel_button_red1.Location = new System.Drawing.Point(104, 200);
+        this.panel_button_red1.Name = "panel_button_red1";
+        this.panel_button_red1.Size = new System.Drawing.Size(260, 30);
+        this.panel_button_red1.TabIndex = 2;
+        // 
+        // button_red1
+        // 
+        this.button_red1.BackColor = System.Drawing.Color.Pink;
+        this.button_red1.Location = new System.Drawing.Point(0, 0);
+        this.button_red1.Name = "button_red1";
+        this.button_red1.Size = new System.Drawing.Size(30, 30);
+        this.button_red1.TabIndex = 0;
+        this.button_red1.UseVisualStyleBackColor = false;
+        // 
+        // panel_link1
+        // 
+        this.panel_link1.BackColor = System.Drawing.Color.White;
+        this.panel_link1.Location = new System.Drawing.Point(370, 200);
+        this.panel_link1.Name = "panel_link1";
+        this.panel_link1.Size = new System.Drawing.Size(200, 30);
+        this.panel_link1.TabIndex = 3;
+        // 
+        // panel_link2
+        // 
+        this.panel_link2.BackColor = System.Drawing.Color.White;
+        this.panel_link2.Location = new System.Drawing.Point(576, 200);
+        this.panel_link2.Name = "panel_link2";
+        this.panel_link2.Size = new System.Drawing.Size(200, 30);
+        this.panel_link2.TabIndex = 4;
+        // 
+        // panel_button_green1
+        // 
+        this.panel_button_green1.BackColor = System.Drawing.Color.White;
+        this.panel_button_green1.Controls.Add(this.button_green1);
+        this.panel_button_green1.Location = new System.Drawing.Point(576, 68);
+        this.panel_button_green1.Name = "panel_button_green1";
+        this.panel_button_green1.Size = new System.Drawing.Size(30, 126);
+        this.panel_button_green1.TabIndex = 1;
+        // 
+        // button_green1
+        // 
+        this.button_green1.BackColor = System.Drawing.Color.Pink;
+        this.button_green1.Location = new System.Drawing.Point(0, 0);
+        this.button_green1.Name = "button_green1";
+        this.button_green1.Size = new System.Drawing.Size(30, 30);
+        this.button_green1.TabIndex = 0;
+        this.button_green1.UseVisualStyleBackColor = false;
+        // 
+        // panel_button_purple1
+        // 
+        this.panel_button_purple1.BackColor = System.Drawing.Color.White;
+        this.panel_button_purple1.Controls.Add(this.button_purple1);
+        this.panel_button_purple1.Location = new System.Drawing.Point(782, 68);
+        this.panel_button_purple1.Name = "panel_button_purple1";
+        this.panel_button_purple1.Size = new System.Drawing.Size(30, 126);
+        this.panel_button_purple1.TabIndex = 2;
+        // 
+        // button_purple1
+        // 
+        this.button_purple1.BackColor = System.Drawing.Color.Pink;
+        this.button_purple1.Location = new System.Drawing.Point(0, 0);
+        this.button_purple1.Name = "button_purple1";
+        this.button_purple1.Size = new System.Drawing.Size(30, 30);
+        this.button_purple1.TabIndex = 0;
+        this.button_purple1.UseVisualStyleBackColor = false;
+        // 
+        // panel_link3
+        // 
+        this.panel_link3.BackColor = System.Drawing.Color.White;
+        this.panel_link3.Location = new System.Drawing.Point(782, 201);
+        this.panel_link3.Name = "panel_link3";
+        this.panel_link3.Size = new System.Drawing.Size(200, 29);
+        this.panel_link3.TabIndex = 5;
+        // 
+        // panel_link4
+        // 
+        this.panel_link4.BackColor = System.Drawing.Color.White;
+        this.panel_link4.Location = new System.Drawing.Point(988, 201);
+        this.panel_link4.Name = "panel_link4";
+        this.panel_link4.Size = new System.Drawing.Size(30, 312);
+        this.panel_link4.TabIndex = 6;
+        // 
+        // panel_crossing_type2
+        // 
+        this.panel_crossing_type2.BackColor = System.Drawing.Color.White;
+        this.panel_crossing_type2.Location = new System.Drawing.Point(370, 405);
+        this.panel_crossing_type2.Name = "panel_crossing_type2";
+        this.panel_crossing_type2.Size = new System.Drawing.Size(30, 108);
+        this.panel_crossing_type2.TabIndex = 7;
+        // 
+        // panel_crossing_type1
+        // 
+        this.panel_crossing_type1.BackColor = System.Drawing.Color.White;
+        this.panel_crossing_type1.Location = new System.Drawing.Point(370, 519);
+        this.panel_crossing_type1.Name = "panel_crossing_type1";
+        this.panel_crossing_type1.Size = new System.Drawing.Size(648, 29);
+        this.panel_crossing_type1.TabIndex = 8;
+        // 
+        // panel_link5
+        // 
+        this.panel_link5.BackColor = System.Drawing.Color.White;
+        this.panel_link5.Location = new System.Drawing.Point(370, 293);
+        this.panel_link5.Name = "panel_link5";
+        this.panel_link5.Size = new System.Drawing.Size(30, 105);
+        this.panel_link5.TabIndex = 9;
+        // 
+        // panel_garage1
+        // 
+        this.panel_garage1.BackColor = System.Drawing.Color.White;
+        this.panel_garage1.Location = new System.Drawing.Point(406, 405);
+        this.panel_garage1.Name = "panel_garage1";
+        this.panel_garage1.Size = new System.Drawing.Size(136, 32);
+        this.panel_garage1.TabIndex = 10;
+        // 
+        // panel_garage2
+        // 
+        this.panel_garage2.BackColor = System.Drawing.Color.White;
+        this.panel_garage2.Location = new System.Drawing.Point(406, 293);
+        this.panel_garage2.Name = "panel_garage2";
+        this.panel_garage2.Size = new System.Drawing.Size(136, 32);
+        this.panel_garage2.TabIndex = 11;
+        // 
+        // panel_button_yellow1
+        // 
+        this.panel_button_yellow1.BackColor = System.Drawing.Color.White;
+        this.panel_button_yellow1.Controls.Add(this.button_yellow1);
+        this.panel_button_yellow1.Location = new System.Drawing.Point(988, 68);
+        this.panel_button_yellow1.Name = "panel_button_yellow1";
+        this.panel_button_yellow1.Size = new System.Drawing.Size(30, 126);
+        this.panel_button_yellow1.TabIndex = 3;
+        // 
+        // button_yellow1
+        // 
+        this.button_yellow1.BackColor = System.Drawing.Color.Pink;
+        this.button_yellow1.Location = new System.Drawing.Point(0, 0);
+        this.button_yellow1.Name = "button_yellow1";
+        this.button_yellow1.Size = new System.Drawing.Size(30, 30);
+        this.button_yellow1.TabIndex = 0;
+        this.button_yellow1.UseVisualStyleBackColor = false;
+        // 
+        // panel_button_orange1
+        // 
+        this.panel_button_orange1.BackColor = System.Drawing.Color.White;
+        this.panel_button_orange1.Controls.Add(this.button_orange1);
+        this.panel_button_orange1.Location = new System.Drawing.Point(1024, 519);
+        this.panel_button_orange1.Name = "panel_button_orange1";
+        this.panel_button_orange1.Size = new System.Drawing.Size(191, 29);
+        this.panel_button_orange1.TabIndex = 4;
+        // 
+        // button_orange1
+        // 
+        this.button_orange1.BackColor = System.Drawing.Color.Pink;
+        this.button_orange1.Location = new System.Drawing.Point(161, 0);
+        this.button_orange1.Name = "button_orange1";
+        this.button_orange1.Size = new System.Drawing.Size(30, 30);
+        this.button_orange1.TabIndex = 0;
+        this.button_orange1.UseVisualStyleBackColor = false;
+        // 
+        // Form1
+        // 
+        this.BackColor = System.Drawing.Color.LightGray;
+        this.ClientSize = new System.Drawing.Size(1246, 585);
+        this.Controls.Add(this.panel_button_orange1);
+        this.Controls.Add(this.panel_button_yellow1);
+        this.Controls.Add(this.panel_garage2);
+        this.Controls.Add(this.panel_garage1);
+        this.Controls.Add(this.panel_link5);
+        this.Controls.Add(this.panel_crossing_type1);
+        this.Controls.Add(this.panel_crossing_type2);
+        this.Controls.Add(this.panel_link4);
+        this.Controls.Add(this.panel_link3);
+        this.Controls.Add(this.panel_button_purple1);
+        this.Controls.Add(this.panel_button_green1);
+        this.Controls.Add(this.panel_link2);
+        this.Controls.Add(this.panel_link1);
+        this.Controls.Add(this.panel_button_blue1);
+        this.Controls.Add(this.panel_runway1);
+        this.Controls.Add(this.panel_button_red1);
+        this.Name = "Form1";
+        this.Text = "Bermuda Triangle Airways";
+        this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
+        this.panel_button_blue1.ResumeLayout(false);
+        this.panel_button_red1.ResumeLayout(false);
+        this.panel_button_green1.ResumeLayout(false);
+        this.panel_button_purple1.ResumeLayout(false);
+        this.panel_button_yellow1.ResumeLayout(false);
+        this.panel_button_orange1.ResumeLayout(false);
+        this.ResumeLayout(false);
 
     }
 
@@ -843,7 +842,6 @@ public class CrossingType1PanelThread
     private int yDelta;
     private Semaphore semaphore;
     private Buffer buffer;
-    private bool what_road;
     private Semaphore next_semaphore1;
     private Buffer next_buffer1;
     private Semaphore next_semaphore2;
@@ -858,7 +856,6 @@ public class CrossingType1PanelThread
                        Color colour,
                        Semaphore semaphore,
                        Buffer buffer,
-                       bool what_road,
                        Semaphore next_semaphore1,
                        Buffer next_buffer1,
                         Semaphore next_semaphore2,
@@ -876,7 +873,6 @@ public class CrossingType1PanelThread
         this.yDelta = (direction == 3) ? +10 : ((direction == 4) ? -10 : 0);
         this.semaphore = semaphore;
         this.buffer = buffer;
-        this.what_road = what_road;
         this.next_semaphore1 = next_semaphore1;
         this.next_buffer1 = next_buffer1;
         this.next_semaphore2 = next_semaphore2;
@@ -905,7 +901,7 @@ public class CrossingType1PanelThread
 
             }
             /* les lignes qui changent tout */
-            if (what_road)
+            if (!(this.colour == Color.Orange))
             {
                 next_semaphore1.Wait();
                 next_buffer1.Write(this.colour);
