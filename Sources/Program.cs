@@ -24,13 +24,13 @@ public class Form1 : Form
     private CrossingType1PanelThread crossing_type1_panel_thread_panel_crossing_type1;
     private Panel panel_crossing_type2;
     private CrossingType2PanelThread crossing_type2_panel_thread_panel_crossing_type2;
-    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9, thread10, thread11, thread12;
+    private Panel panel_garage1, panel_garage2;
+    private GaragePanelThread garage_panel_thread_panel_garage1, garage_panel_thread_panel_garage2;
+    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9, thread10, thread11, thread12, thread13, thread14;
     private Semaphore semaphore1, semaphore2, semaphore3, semaphore4, semaphore5, semaphore6, semaphore7, semaphore8, semaphore9, semaphore10;
     private Buffer buffer1, buffer2, buffer3, buffer4, buffer5, buffer6, buffer7, buffer8, buffer9, buffer10;
     private Thread semThread1, semThread2, semThread3, semThread4, semThread5, semThread6, semThread7, semThread8, semThread9, semThread10;
     private Thread buffThread1, buffThread2, buffThread3, buffThread4, buffThread5, buffThread6, buffThread7, buffThread8, buffThread9, buffThread10;
-    private Panel panel_garage1;
-    private Panel panel_garage2;
 
 
     public Form1()
@@ -155,11 +155,25 @@ public class Form1 : Form
                      Color.White,
                      semaphore7,
                      buffer7,
-                     true,
+                     false,
                      semaphore8,
                      buffer8,
                      semaphore9,
                      buffer9);
+
+        garage_panel_thread_panel_garage1 = new GaragePanelThread(new Point(8, 10),
+                                11,
+                             100, 1, panel_garage1,
+                             Color.White,
+                             semaphore9,
+                             buffer9);
+
+        garage_panel_thread_panel_garage2 = new GaragePanelThread(new Point(8, 10),
+                                11,
+                             100, 1, panel_garage2,
+                             Color.White,
+                             semaphore10,
+                             buffer10);
 
         runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(323, 10),
                                 31,
@@ -201,6 +215,8 @@ public class Form1 : Form
         thread10 = new Thread(new ThreadStart(crossing_type1_panel_thread_panel_crossing_type1.Start));
         thread11 = new Thread(new ThreadStart(crossing_type2_panel_thread_panel_crossing_type2.Start));
         thread12 = new Thread(new ThreadStart(link_panel_thread_panel_link5.Start));
+        thread13 = new Thread(new ThreadStart(garage_panel_thread_panel_garage1.Start)); ;
+        thread14 = new Thread(new ThreadStart(garage_panel_thread_panel_garage2.Start)); ;
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
@@ -237,6 +253,8 @@ public class Form1 : Form
         thread10.Start();
         thread11.Start();
         thread12.Start();
+        thread13.Start();
+        thread14.Start();
 
     }
 
