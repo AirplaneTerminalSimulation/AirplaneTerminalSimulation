@@ -23,11 +23,12 @@ public class Form1 : Form
     private Panel panel_crossing_type1;
     private CrossingType1PanelThread crossing_type1_panel_thread_panel_crossing_type1;
     private Panel panel_crossing_type2;
-    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9, thread10;
-    private Semaphore semaphore1, semaphore2, semaphore3, semaphore4, semaphore5, semaphore6, semaphore7, semaphore8;
-    private Buffer buffer1, buffer2, buffer3, buffer4, buffer5, buffer6, buffer7, buffer8;
-    private Thread semThread1, semThread2, semThread3, semThread4, semThread5, semThread6, semThread7, semThread8;
-    private Thread buffThread1, buffThread2, buffThread3, buffThread4, buffThread5, buffThread6, buffThread7, buffThread8;
+    private CrossingType2PanelThread crossing_type2_panel_thread_panel_crossing_type2;
+    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9, thread10, thread11;
+    private Semaphore semaphore1, semaphore2, semaphore3, semaphore4, semaphore5, semaphore6, semaphore7, semaphore8, semaphore9;
+    private Buffer buffer1, buffer2, buffer3, buffer4, buffer5, buffer6, buffer7, buffer8, buffer9;
+    private Thread semThread1, semThread2, semThread3, semThread4, semThread5, semThread6, semThread7, semThread8, semThread9;
+    private Thread buffThread1, buffThread2, buffThread3, buffThread4, buffThread5, buffThread6, buffThread7, buffThread8, buffThread9;
 
 
     public Form1()
@@ -51,6 +52,8 @@ public class Form1 : Form
         buffer7 = new Buffer();
         semaphore8 = new Semaphore();
         buffer8 = new Buffer();
+        semaphore9 = new Semaphore();
+        buffer9 = new Buffer();
 
 
         button_panel_thread_panel_button_blue1 = new ButtonPanelThread(new Point(10, 40),
@@ -127,11 +130,23 @@ public class Form1 : Form
                      Color.White,
                      semaphore5,
                      buffer5,
-                     true,
+                     false,
                      semaphore6,
                      buffer6,
                      semaphore7,
                      buffer7);
+
+        crossing_type2_panel_thread_panel_crossing_type2 = new CrossingType2PanelThread(new Point(10, 210),
+                        20,
+                     100, 4, panel_crossing_type2,
+                     Color.White,
+                     semaphore7,
+                     buffer7,
+                     true,
+                     semaphore8,
+                     buffer8,
+                     semaphore9,
+                     buffer9);
 
         runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(323, 10),
                                 31,
@@ -151,12 +166,14 @@ public class Form1 : Form
         buffThread4 = new Thread(new ThreadStart(buffer4.Start));
         semThread5 = new Thread(new ThreadStart(semaphore5.Start));
         buffThread5 = new Thread(new ThreadStart(buffer5.Start));
-        semThread6 = new Thread(new ThreadStart(semaphore5.Start));
-        buffThread6 = new Thread(new ThreadStart(buffer5.Start));
-        semThread7 = new Thread(new ThreadStart(semaphore5.Start));
-        buffThread7 = new Thread(new ThreadStart(buffer5.Start));
-        semThread8 = new Thread(new ThreadStart(semaphore5.Start));
-        buffThread8 = new Thread(new ThreadStart(buffer5.Start));
+        semThread6 = new Thread(new ThreadStart(semaphore6.Start));
+        buffThread6 = new Thread(new ThreadStart(buffer6.Start));
+        semThread7 = new Thread(new ThreadStart(semaphore7.Start));
+        buffThread7 = new Thread(new ThreadStart(buffer7.Start));
+        semThread8 = new Thread(new ThreadStart(semaphore8.Start));
+        buffThread8 = new Thread(new ThreadStart(buffer8.Start));
+        semThread9 = new Thread(new ThreadStart(semaphore9.Start));
+        buffThread9 = new Thread(new ThreadStart(buffer9.Start));
         thread1 = new Thread(new ThreadStart(button_panel_thread_panel_button_blue1.Start));
         thread2 = new Thread(new ThreadStart(runway_panel_thread_panel_runway1.Start));
         thread3 = new Thread(new ThreadStart(button_panel_thread_panel_button_red1.Start));
@@ -167,6 +184,7 @@ public class Form1 : Form
         thread8 = new Thread(new ThreadStart(link_panel_thread_panel_link3.Start));
         thread9 = new Thread(new ThreadStart(link_panel_thread_panel_link4.Start));
         thread10 = new Thread(new ThreadStart(crossing_type1_panel_thread_panel_crossing_type1.Start));
+        thread11 = new Thread(new ThreadStart(crossing_type2_panel_thread_panel_crossing_type2.Start));
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
@@ -187,6 +205,8 @@ public class Form1 : Form
         buffThread7.Start();
         semThread8.Start();
         buffThread8.Start();
+        semThread9.Start();
+        buffThread9.Start();
         thread1.Start();
         thread2.Start();
         thread3.Start();
@@ -197,6 +217,7 @@ public class Form1 : Form
         thread8.Start();
         thread9.Start();
         thread10.Start();
+        thread11.Start();
 
     }
 
