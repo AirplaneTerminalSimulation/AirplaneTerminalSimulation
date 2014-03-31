@@ -16,19 +16,21 @@ public class Form1 : Form
     private Panel panel_button_blue1, panel_button_red1, panel_button_green1, panel_button_purple1;
     private Button button_blue1, button_red1, button_green1, button_purple1;
     private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_panel_button_red1, button_panel_thread_panel_button_green1, button_panel_thread_panel_button_purple1;
-    private Panel panel_link1, panel_link2, panel_link3, panel_link4;
-    private LinkPanelThread link_panel_thread_panel_link1, link_panel_thread_panel_link2, link_panel_thread_panel_link3, link_panel_thread_panel_link4;
+    private Panel panel_link1, panel_link2, panel_link3, panel_link4, panel_link5;
+    private LinkPanelThread link_panel_thread_panel_link1, link_panel_thread_panel_link2, link_panel_thread_panel_link3, link_panel_thread_panel_link4, link_panel_thread_panel_link5;
     private Panel panel_runway1;
     private RunwayPanelThread runway_panel_thread_panel_runway1;
     private Panel panel_crossing_type1;
     private CrossingType1PanelThread crossing_type1_panel_thread_panel_crossing_type1;
     private Panel panel_crossing_type2;
     private CrossingType2PanelThread crossing_type2_panel_thread_panel_crossing_type2;
-    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9, thread10, thread11;
-    private Semaphore semaphore1, semaphore2, semaphore3, semaphore4, semaphore5, semaphore6, semaphore7, semaphore8, semaphore9;
-    private Buffer buffer1, buffer2, buffer3, buffer4, buffer5, buffer6, buffer7, buffer8, buffer9;
-    private Thread semThread1, semThread2, semThread3, semThread4, semThread5, semThread6, semThread7, semThread8, semThread9;
-    private Thread buffThread1, buffThread2, buffThread3, buffThread4, buffThread5, buffThread6, buffThread7, buffThread8, buffThread9;
+    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9, thread10, thread11, thread12;
+    private Semaphore semaphore1, semaphore2, semaphore3, semaphore4, semaphore5, semaphore6, semaphore7, semaphore8, semaphore9, semaphore10;
+    private Buffer buffer1, buffer2, buffer3, buffer4, buffer5, buffer6, buffer7, buffer8, buffer9, buffer10;
+    private Thread semThread1, semThread2, semThread3, semThread4, semThread5, semThread6, semThread7, semThread8, semThread9, semThread10;
+    private Thread buffThread1, buffThread2, buffThread3, buffThread4, buffThread5, buffThread6, buffThread7, buffThread8, buffThread9, buffThread10;
+    private Panel panel_garage1;
+    private Panel panel_garage2;
 
 
     public Form1()
@@ -54,6 +56,8 @@ public class Form1 : Form
         buffer8 = new Buffer();
         semaphore9 = new Semaphore();
         buffer9 = new Buffer();
+        semaphore10 = new Semaphore();
+        buffer10 = new Buffer();
 
 
         button_panel_thread_panel_button_blue1 = new ButtonPanelThread(new Point(10, 40),
@@ -124,6 +128,15 @@ public class Form1 : Form
                      semaphore5,
                      buffer5);
 
+        link_panel_thread_panel_link5 = new LinkPanelThread(new Point(10, 100),
+                        9,
+                     100, 4, panel_link5,
+                     Color.White,
+                     semaphore8,
+                     buffer8,
+                     semaphore10,
+                     buffer10);
+
         crossing_type1_panel_thread_panel_crossing_type1 = new CrossingType1PanelThread(new Point(640, 10),
                         63,
                      100, 2, panel_crossing_type1,
@@ -136,8 +149,8 @@ public class Form1 : Form
                      semaphore7,
                      buffer7);
 
-        crossing_type2_panel_thread_panel_crossing_type2 = new CrossingType2PanelThread(new Point(10, 210),
-                        20,
+        crossing_type2_panel_thread_panel_crossing_type2 = new CrossingType2PanelThread(new Point(10, 100),
+                        9,
                      100, 4, panel_crossing_type2,
                      Color.White,
                      semaphore7,
@@ -174,6 +187,8 @@ public class Form1 : Form
         buffThread8 = new Thread(new ThreadStart(buffer8.Start));
         semThread9 = new Thread(new ThreadStart(semaphore9.Start));
         buffThread9 = new Thread(new ThreadStart(buffer9.Start));
+        semThread10 = new Thread(new ThreadStart(semaphore10.Start));
+        buffThread10 = new Thread(new ThreadStart(buffer10.Start));
         thread1 = new Thread(new ThreadStart(button_panel_thread_panel_button_blue1.Start));
         thread2 = new Thread(new ThreadStart(runway_panel_thread_panel_runway1.Start));
         thread3 = new Thread(new ThreadStart(button_panel_thread_panel_button_red1.Start));
@@ -185,6 +200,7 @@ public class Form1 : Form
         thread9 = new Thread(new ThreadStart(link_panel_thread_panel_link4.Start));
         thread10 = new Thread(new ThreadStart(crossing_type1_panel_thread_panel_crossing_type1.Start));
         thread11 = new Thread(new ThreadStart(crossing_type2_panel_thread_panel_crossing_type2.Start));
+        thread12 = new Thread(new ThreadStart(link_panel_thread_panel_link5.Start));
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
@@ -207,6 +223,8 @@ public class Form1 : Form
         buffThread8.Start();
         semThread9.Start();
         buffThread9.Start();
+        semThread10.Start();
+        buffThread10.Start();
         thread1.Start();
         thread2.Start();
         thread3.Start();
@@ -218,6 +236,7 @@ public class Form1 : Form
         thread9.Start();
         thread10.Start();
         thread11.Start();
+        thread12.Start();
 
     }
 
@@ -249,6 +268,9 @@ public class Form1 : Form
             this.panel_link4 = new System.Windows.Forms.Panel();
             this.panel_crossing_type2 = new System.Windows.Forms.Panel();
             this.panel_crossing_type1 = new System.Windows.Forms.Panel();
+            this.panel_link5 = new System.Windows.Forms.Panel();
+            this.panel_garage1 = new System.Windows.Forms.Panel();
+            this.panel_garage2 = new System.Windows.Forms.Panel();
             this.panel_button_blue1.SuspendLayout();
             this.panel_button_red1.SuspendLayout();
             this.panel_button_green1.SuspendLayout();
@@ -370,9 +392,9 @@ public class Form1 : Form
             // panel_crossing_type2
             // 
             this.panel_crossing_type2.BackColor = System.Drawing.Color.White;
-            this.panel_crossing_type2.Location = new System.Drawing.Point(370, 296);
+            this.panel_crossing_type2.Location = new System.Drawing.Point(370, 405);
             this.panel_crossing_type2.Name = "panel_crossing_type2";
-            this.panel_crossing_type2.Size = new System.Drawing.Size(30, 217);
+            this.panel_crossing_type2.Size = new System.Drawing.Size(30, 108);
             this.panel_crossing_type2.TabIndex = 7;
             // 
             // panel_crossing_type1
@@ -383,10 +405,37 @@ public class Form1 : Form
             this.panel_crossing_type1.Size = new System.Drawing.Size(648, 29);
             this.panel_crossing_type1.TabIndex = 8;
             // 
+            // panel_link5
+            // 
+            this.panel_link5.BackColor = System.Drawing.Color.White;
+            this.panel_link5.Location = new System.Drawing.Point(370, 293);
+            this.panel_link5.Name = "panel_link5";
+            this.panel_link5.Size = new System.Drawing.Size(30, 105);
+            this.panel_link5.TabIndex = 9;
+            // 
+            // panel_garage1
+            // 
+            this.panel_garage1.BackColor = System.Drawing.Color.White;
+            this.panel_garage1.Location = new System.Drawing.Point(406, 405);
+            this.panel_garage1.Name = "panel_garage1";
+            this.panel_garage1.Size = new System.Drawing.Size(136, 32);
+            this.panel_garage1.TabIndex = 10;
+            // 
+            // panel_garage2
+            // 
+            this.panel_garage2.BackColor = System.Drawing.Color.White;
+            this.panel_garage2.Location = new System.Drawing.Point(406, 293);
+            this.panel_garage2.Name = "panel_garage2";
+            this.panel_garage2.Size = new System.Drawing.Size(136, 32);
+            this.panel_garage2.TabIndex = 11;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1246, 585);
+            this.Controls.Add(this.panel_garage2);
+            this.Controls.Add(this.panel_garage1);
+            this.Controls.Add(this.panel_link5);
             this.Controls.Add(this.panel_crossing_type1);
             this.Controls.Add(this.panel_crossing_type2);
             this.Controls.Add(this.panel_link4);
