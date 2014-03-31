@@ -13,9 +13,9 @@ public class Form1 : Form
 {
 
     private Container components = null;
-    private Panel panel_button_blue1, panel_button_red1, panel_button_green1, panel_button_purple1, panel_button_yellow1;
-    private Button button_blue1, button_red1, button_green1, button_purple1, button_yellow1;
-    private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_panel_button_red1, button_panel_thread_panel_button_green1, button_panel_thread_panel_button_purple1, button_panel_thread_panel_button_yellow1;
+    private Panel panel_button_blue1, panel_button_red1, panel_button_green1, panel_button_purple1, panel_button_yellow1, panel_button_orange1;
+    private Button button_blue1, button_red1, button_green1, button_purple1, button_yellow1, button_orange1;
+    private ButtonPanelThread button_panel_thread_panel_button_blue1, button_panel_thread_panel_button_red1, button_panel_thread_panel_button_green1, button_panel_thread_panel_button_purple1, button_panel_thread_panel_button_yellow1, button_panel_thread_panel_button_orange1;
     private Panel panel_link1, panel_link2, panel_link3, panel_link4, panel_link5;
     private LinkPanelThread link_panel_thread_panel_link1, link_panel_thread_panel_link2, link_panel_thread_panel_link3, link_panel_thread_panel_link4, link_panel_thread_panel_link5;
     private Panel panel_runway1;
@@ -26,7 +26,7 @@ public class Form1 : Form
     private CrossingType2PanelThread crossing_type2_panel_thread_panel_crossing_type2;
     private Panel panel_garage1, panel_garage2;
     private GaragePanelThread garage_panel_thread_panel_garage1, garage_panel_thread_panel_garage2;
-    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9, thread10, thread11, thread12, thread13, thread14, thread15;
+    private Thread thread1, thread2, thread3, thread4, thread5, thread6, thread7, thread8, thread9, thread10, thread11, thread12, thread13, thread14, thread15, thread16;
     private Semaphore semaphore1, semaphore2, semaphore3, semaphore4, semaphore5, semaphore6, semaphore7, semaphore8, semaphore9, semaphore10;
     private Buffer buffer1, buffer2, buffer3, buffer4, buffer5, buffer6, buffer7, buffer8, buffer9, buffer10;
     private Thread semThread1, semThread2, semThread3, semThread4, semThread5, semThread6, semThread7, semThread8, semThread9, semThread10;
@@ -99,6 +99,14 @@ public class Form1 : Form
                      semaphore4,
                      buffer4,
                      button_yellow1);
+
+        button_panel_thread_panel_button_orange1 = new ButtonPanelThread(new Point(145, 10),
+                        13,
+                     120, 2, panel_button_orange1,
+                     Color.Orange,
+                     semaphore5,
+                     buffer5,
+                     button_orange1);
 
         link_panel_thread_panel_link1 = new LinkPanelThread(new Point(8, 10),
                                 17,
@@ -226,6 +234,7 @@ public class Form1 : Form
         thread13 = new Thread(new ThreadStart(garage_panel_thread_panel_garage1.Start));
         thread14 = new Thread(new ThreadStart(garage_panel_thread_panel_garage2.Start));
         thread15 = new Thread(new ThreadStart(button_panel_thread_panel_button_yellow1.Start));
+        thread16 = new Thread(new ThreadStart(button_panel_thread_panel_button_orange1.Start));
 
 
         this.Closing += new CancelEventHandler(this.Form1_Closing);
@@ -265,6 +274,7 @@ public class Form1 : Form
         thread13.Start();
         thread14.Start();
         thread15.Start();
+        thread16.Start();
 
     }
 
@@ -301,11 +311,14 @@ public class Form1 : Form
             this.panel_garage2 = new System.Windows.Forms.Panel();
             this.panel_button_yellow1 = new System.Windows.Forms.Panel();
             this.button_yellow1 = new System.Windows.Forms.Button();
+            this.panel_button_orange1 = new System.Windows.Forms.Panel();
+            this.button_orange1 = new System.Windows.Forms.Button();
             this.panel_button_blue1.SuspendLayout();
             this.panel_button_red1.SuspendLayout();
             this.panel_button_green1.SuspendLayout();
             this.panel_button_purple1.SuspendLayout();
             this.panel_button_yellow1.SuspendLayout();
+            this.panel_button_orange1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_button_blue1
@@ -478,10 +491,29 @@ public class Form1 : Form
             this.button_yellow1.TabIndex = 0;
             this.button_yellow1.UseVisualStyleBackColor = false;
             // 
+            // panel_button_orange1
+            // 
+            this.panel_button_orange1.BackColor = System.Drawing.Color.White;
+            this.panel_button_orange1.Controls.Add(this.button_orange1);
+            this.panel_button_orange1.Location = new System.Drawing.Point(1024, 519);
+            this.panel_button_orange1.Name = "panel_button_orange1";
+            this.panel_button_orange1.Size = new System.Drawing.Size(191, 29);
+            this.panel_button_orange1.TabIndex = 4;
+            // 
+            // button_orange1
+            // 
+            this.button_orange1.BackColor = System.Drawing.Color.Pink;
+            this.button_orange1.Location = new System.Drawing.Point(161, 0);
+            this.button_orange1.Name = "button_orange1";
+            this.button_orange1.Size = new System.Drawing.Size(30, 30);
+            this.button_orange1.TabIndex = 0;
+            this.button_orange1.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1246, 585);
+            this.Controls.Add(this.panel_button_orange1);
             this.Controls.Add(this.panel_button_yellow1);
             this.Controls.Add(this.panel_garage2);
             this.Controls.Add(this.panel_garage1);
@@ -505,6 +537,7 @@ public class Form1 : Form
             this.panel_button_green1.ResumeLayout(false);
             this.panel_button_purple1.ResumeLayout(false);
             this.panel_button_yellow1.ResumeLayout(false);
+            this.panel_button_orange1.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
