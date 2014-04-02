@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Collections;
 using System.Data;
 using System.Drawing;
+using System.Media;
 
 //
 //  Bermuda Triangle : Version 16
@@ -1137,6 +1138,11 @@ public class RunwayPanelThread
             this.zeroPlane();
 
             buffer.Read(ref this.colour);
+
+            /* music */
+            SoundPlayer sound = new SoundPlayer("decollage.wav");
+            sound.Play();
+            /*-------*/
 
             for (int i = 1; i <= length_to_go; i++)
             {
