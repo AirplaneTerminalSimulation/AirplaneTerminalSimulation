@@ -557,7 +557,7 @@ public class Form1 : Form
             this.Controls.Add(this.panel_runway1);
             this.Controls.Add(this.panel_button_red1);
             this.Name = "Form1";
-            this.Text = "Bermuda Triangle Airways";
+            this.Text = "Airplane Terminal Simulation by Stephane ARCHER";
             this.Closing += new System.ComponentModel.CancelEventHandler(this.Form1_Closing);
             this.panel_button_blue1.ResumeLayout(false);
             this.panel_button_red1.ResumeLayout(false);
