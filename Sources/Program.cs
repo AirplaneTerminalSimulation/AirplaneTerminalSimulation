@@ -33,6 +33,7 @@ public class Form1 : Form
     private Thread semThread1, semThread2, semThread3, semThread4, semThread5, semThread6, semThread7, semThread8, semThread9, semThread10;
     private Thread buffThread1, buffThread2, buffThread3, buffThread4, buffThread5, buffThread6, buffThread7, buffThread8, buffThread9, buffThread10;
     private RadioButton radio_button_garage1, radio_button_garage2;
+    private Button button_garage1, button_garage2;
 
 
     public Form1()
@@ -316,6 +317,8 @@ public class Form1 : Form
             this.button_orange1 = new System.Windows.Forms.Button();
             this.radio_button_garage1 = new System.Windows.Forms.RadioButton();
             this.radio_button_garage2 = new System.Windows.Forms.RadioButton();
+            this.button_garage1 = new System.Windows.Forms.Button();
+            this.button_garage2 = new System.Windows.Forms.Button();
             this.panel_button_blue1.SuspendLayout();
             this.panel_button_red1.SuspendLayout();
             this.panel_button_green1.SuspendLayout();
@@ -465,7 +468,7 @@ public class Form1 : Form
             this.panel_garage1.BackColor = System.Drawing.Color.White;
             this.panel_garage1.Location = new System.Drawing.Point(406, 405);
             this.panel_garage1.Name = "panel_garage1";
-            this.panel_garage1.Size = new System.Drawing.Size(136, 32);
+            this.panel_garage1.Size = new System.Drawing.Size(136, 30);
             this.panel_garage1.TabIndex = 10;
             // 
             // panel_garage2
@@ -473,7 +476,7 @@ public class Form1 : Form
             this.panel_garage2.BackColor = System.Drawing.Color.White;
             this.panel_garage2.Location = new System.Drawing.Point(406, 293);
             this.panel_garage2.Name = "panel_garage2";
-            this.panel_garage2.Size = new System.Drawing.Size(136, 32);
+            this.panel_garage2.Size = new System.Drawing.Size(136, 29);
             this.panel_garage2.TabIndex = 11;
             // 
             // panel_button_yellow1
@@ -535,10 +538,30 @@ public class Form1 : Form
             this.radio_button_garage2.Text = "garage2";
             this.radio_button_garage2.UseVisualStyleBackColor = true;
             // 
+            // button_garage1
+            // 
+            this.button_garage1.BackColor = System.Drawing.Color.Pink;
+            this.button_garage1.Location = new System.Drawing.Point(540, 292);
+            this.button_garage1.Name = "button_garage1";
+            this.button_garage1.Size = new System.Drawing.Size(30, 30);
+            this.button_garage1.TabIndex = 1;
+            this.button_garage1.UseVisualStyleBackColor = false;
+            // 
+            // button_garage2
+            // 
+            this.button_garage2.BackColor = System.Drawing.Color.Pink;
+            this.button_garage2.Location = new System.Drawing.Point(540, 405);
+            this.button_garage2.Name = "button_garage2";
+            this.button_garage2.Size = new System.Drawing.Size(30, 30);
+            this.button_garage2.TabIndex = 14;
+            this.button_garage2.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1246, 585);
+            this.Controls.Add(this.button_garage2);
+            this.Controls.Add(this.button_garage1);
             this.Controls.Add(this.radio_button_garage2);
             this.Controls.Add(this.radio_button_garage1);
             this.Controls.Add(this.panel_button_orange1);
