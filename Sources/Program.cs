@@ -197,7 +197,7 @@ public class Form1 : Form
 
         runway_panel_thread_panel_runway1 = new RunwayPanelThread(new Point(323, 10),
                                 31,
-                             100, 2, panel_runway1,
+                             75, 2, panel_runway1,
                              Color.White,
                              semaphore6,
                              buffer6);
